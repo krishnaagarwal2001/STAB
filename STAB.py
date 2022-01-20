@@ -2,6 +2,7 @@ import datetime
 from operator import itemgetter
 from tkinter import *
 from tkinter import ttk
+from Results import *
 
 
 splash_root = Tk()
@@ -104,38 +105,39 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root):
     b = datetime.datetime.now()
     print(b-a)
 
-    newWindow = Toplevel(root)
-    newWindow.geometry("500x500")
-
-    solution_frame = LabelFrame(newWindow, padx=20, pady=10)
-    solution_frame.pack(padx=10, pady=10, fill=X, expand=1, )
-
-    # Canvas
-    solutionCanvas = Canvas(solution_frame)
-    solutionCanvas.pack(side=LEFT, fill=X, expand=1)
-
-    solutionFrame = Frame(solutionCanvas)
-
-    solutionCanvas.create_window((50, 50), window=solutionFrame, anchor="nw")
-
-
-    Label_NumOfStockPiles = Label(newWindow, text="Number of Possible Solutions")
-    Label_NumOfStockPiles.place(relx=0.3, rely=0.4, anchor=CENTER)
-
-    Label_NumOfStockPiles = Label(newWindow, text=numSolutions)
-    Label_NumOfStockPiles.place(relx=0.8, rely=0.4, anchor=CENTER)
-
-    Label_NumOfStockPiles = Label(newWindow, text="Best Solution")
-    Label_NumOfStockPiles.place(relx=0.3, rely=0.7, anchor=CENTER)
-
-
-
-    if(numSolutions > 0):
-        Label_NumOfStockPiles = Label(newWindow, text=possibleSolutions[0]['Solution'])
-        Label_NumOfStockPiles.place(relx=0.8, rely=0.7, anchor=CENTER)
-    else:
-        Label_NumOfStockPiles = Label(newWindow, text="NA")
-        Label_NumOfStockPiles.place(relx=0.8, rely=0.7, anchor=CENTER)
+    result_fn(root,possibleSolutions);
+    # newWindow = Toplevel(root)
+    # newWindow.geometry("500x500")
+    #
+    # solution_frame = LabelFrame(newWindow, padx=20, pady=10)
+    # solution_frame.pack(padx=10, pady=10, fill=X, expand=1, )
+    #
+    # # Canvas
+    # solutionCanvas = Canvas(solution_frame)
+    # solutionCanvas.pack(side=LEFT, fill=X, expand=1)
+    #
+    # solutionFrame = Frame(solutionCanvas)
+    #
+    # solutionCanvas.create_window((50, 50), window=solutionFrame, anchor="nw")
+    #
+    #
+    # Label_NumOfStockPiles = Label(newWindow, text="Number of Possible Solutions")
+    # Label_NumOfStockPiles.place(relx=0.3, rely=0.4, anchor=CENTER)
+    #
+    # Label_NumOfStockPiles = Label(newWindow, text=numSolutions)
+    # Label_NumOfStockPiles.place(relx=0.8, rely=0.4, anchor=CENTER)
+    #
+    # Label_NumOfStockPiles = Label(newWindow, text="Best Solution")
+    # Label_NumOfStockPiles.place(relx=0.3, rely=0.7, anchor=CENTER)
+    #
+    #
+    #
+    # if(numSolutions > 0):
+    #     Label_NumOfStockPiles = Label(newWindow, text=possibleSolutions[0]['Solution'])
+    #     Label_NumOfStockPiles.place(relx=0.8, rely=0.7, anchor=CENTER)
+    # else:
+    #     Label_NumOfStockPiles = Label(newWindow, text="NA")
+    #     Label_NumOfStockPiles.place(relx=0.8, rely=0.7, anchor=CENTER)
 
 
 
