@@ -397,7 +397,6 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles):
                 y1,
                 x4,
                 y2,
-                print(x2,y1),
                 fill="#FFFFFF",
                 outline="")
 
@@ -415,8 +414,8 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles):
             y2+=37
 
 ################################################################## GRAPH ##################################################################
-    print(type(corData))
-    print(corData,len(corData),len(corData[0]))
+    # print(type(corData))
+    # print(corData,len(corData),len(corData[0]))
 
     low_lim=[]
     for i in range(0,numSieves):

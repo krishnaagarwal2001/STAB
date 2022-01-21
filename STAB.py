@@ -3,6 +3,7 @@ from operator import itemgetter
 from tkinter import *
 from tkinter import ttk
 from Results import *
+from .EnterValues1.build.EnterValues1 import *
 
 splash_root = Tk()
 splash_root.title("STAB")
