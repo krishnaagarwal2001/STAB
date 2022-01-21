@@ -5,20 +5,29 @@ from tkinter import *
 from tkinter import ttk
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
+NavigationToolbar2Tk)
+import numpy as np
+
 
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 
 
+
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-def result_fn(root,possibleSolutions):
+def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles):
+
+    numsol=len(possibleSolutions)
 
     window =Toplevel(root)
     window.geometry("1280x720")
+    window.title("Result")
     window.configure(bg="#FFFFFF")
 
     canvas = Canvas(
@@ -129,6 +138,7 @@ def result_fn(root,possibleSolutions):
         font=("OpenSansRoman Regular", 16 * -1)
     )
 
+    # Graph Canvas
     canvas.create_rectangle(
         342.0,
         291.0,
@@ -204,53 +214,7 @@ def result_fn(root,possibleSolutions):
         fill="#C1D6FF",
         outline="")
 
-    canvas.create_rectangle(
-        82.0,
-        444.0,
-        184.0,
-        473.0,
-        fill="#FFFFFF",
-        outline="")
 
-    canvas.create_rectangle(
-        82.0,
-        370.0,
-        184.0,
-        399.0,
-        fill="#FFFFFF",
-        outline="")
-
-    canvas.create_rectangle(
-        82.0,
-        518.0,
-        184.0,
-        547.0,
-        fill="#FFFFFF",
-        outline="")
-
-    canvas.create_rectangle(
-        82.0,
-        333.0,
-        184.0,
-        362.0,
-        fill="#FFFFFF",
-        outline="")
-
-    canvas.create_rectangle(
-        82.0,
-        481.0,
-        184.0,
-        510.0,
-        fill="#FFFFFF",
-        outline="")
-
-    canvas.create_rectangle(
-        82.0,
-        407.0,
-        184.0,
-        436.0,
-        fill="#FFFFFF",
-        outline="")
 
     canvas.create_rectangle(
         188.0,
@@ -260,53 +224,7 @@ def result_fn(root,possibleSolutions):
         fill="#C1D6FF",
         outline="")
 
-    canvas.create_rectangle(
-        188.0,
-        444.0,
-        290.0,
-        473.0,
-        fill="#FFFFFF",
-        outline="")
 
-    canvas.create_rectangle(
-        188.0,
-        370.0,
-        290.0,
-        399.0,
-        fill="#FFFFFF",
-        outline="")
-
-    canvas.create_rectangle(
-        188.0,
-        518.0,
-        290.0,
-        547.0,
-        fill="#FFFFFF",
-        outline="")
-
-    canvas.create_rectangle(
-        188.0,
-        333.0,
-        290.0,
-        362.0,
-        fill="#FFFFFF",
-        outline="")
-
-    canvas.create_rectangle(
-        188.0,
-        481.0,
-        290.0,
-        510.0,
-        fill="#FFFFFF",
-        outline="")
-
-    canvas.create_rectangle(
-        188.0,
-        407.0,
-        290.0,
-        436.0,
-        fill="#FFFFFF",
-        outline="")
 
     canvas.create_text(
         90.0,
@@ -314,7 +232,8 @@ def result_fn(root,possibleSolutions):
         anchor="nw",
         text="Stock",
         fill="#273340",
-        font=("OpenSansRoman Regular", 14 * -1)
+        font=("OpenSansRoman Regular", 14 * -1),
+        width=325.0,
     )
 
     canvas.create_text(
@@ -375,20 +294,31 @@ def result_fn(root,possibleSolutions):
         fill="#000000",
         outline="")
 
-    canvas.create_text(
-        300.0,
-        173.0,
-        anchor="nw",
-        text="16",
-        fill="#273340",
-        font=("OpenSansRoman SemiBold", 20 * -1)
-    )
+    if(numsol>0):
+        canvas.create_text(
+            300.0,
+            173.0,
+            anchor="nw",
+            text=numsol,
+            fill="#273340",
+            font=("OpenSansRoman SemiBold", 20 * -1)
+        )
+    else:
+        canvas.create_text(
+            300.0,
+            173.0,
+            anchor="nw",
+            text="No Solution Possible",
+            fill="#FF5A5A",
+            font=("OpenSansRoman SemiBold", 20 * -1)
+        )
+
 
     canvas.create_text(
         78.0,
         212.0,
         anchor="nw",
-        text="Best Solution (1)",
+        text="Best Solution",
         fill="#273340",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -432,5 +362,109 @@ def result_fn(root,possibleSolutions):
         55.0,
         image=image_image_4
     )
+
+    if (numsol > 0):
+        x1 = 82
+        x2 = 188
+        x3=184
+        x4=290
+        y1 = 333
+        y2=362
+        print(type(canvas))
+        for i in range(0, numStockPiles):
+            # print(x1,y1)
+            canvas.create_rectangle(
+                x1,
+                y1,
+                x3,
+                y2,
+                fill="#FFFFFF",
+                outline="")
+
+            # print(x1+8,y1+2)
+            canvas.create_text(
+                x1 + 8,
+                y1 + 6,
+                anchor="nw",
+                text="Stock " + str(i + 1),
+                fill="#283341",
+                font=("OpenSansRoman Regular", 14 * -1),
+                width=325.0,
+            )
+
+            canvas.create_rectangle(
+                x2,
+                y1,
+                x4,
+                y2,
+                print(x2,y1),
+                fill="#FFFFFF",
+                outline="")
+
+            # print(x2+8,y1+2)
+            canvas.create_text(
+                x2 + 8,
+                y1 + 6,
+                anchor="nw",
+                text=possibleSolutions[0]['Solution'][i],
+                fill="#283341",
+                font=("OpenSansRoman Regular", 14 * -1),
+                width=325.0,
+            )
+            y1 += 37
+            y2+=37
+
+################################################################## GRAPH ##################################################################
+    print(type(corData))
+    print(corData,len(corData),len(corData[0]))
+
+    low_lim=[]
+    for i in range(0,numSieves):
+        low_lim.append(corData[i][0])
+    up_lim = []
+    for i in range(0, numSieves):
+        up_lim.append(corData[i][1])
+
+    x=[]
+    for i in range(1,numSieves+1):
+        x.append(i)
+
+    fig = Figure(figsize=(5,3))
+    plot1 = fig.add_subplot(111)
+
+    # plotting the graph
+    plot1.plot(x,low_lim,label="Lower Limit")
+    plot1.plot(x,up_lim,label="Upper Limit")
+
+    if (numsol > 0):
+        sol = []
+
+        for i in range(0,numSieves):
+            sol.append(possibleSolutions[0]['val'][i])
+
+        plot1.plot(x,sol,label="Possible Solution")
+
+    # creating the Tkinter canvas
+    # containing the Matplotlib figure
+    plot1.legend()
+    canvas = FigureCanvasTkAgg(fig,
+                               master=window)
+    canvas.draw()
+
+    # placing the canvas on the Tkinter window
+    canvas.get_tk_widget().place(x=342,y=291)
+
+    # bar1.get_tk_widget().pack(side=tk.LEFT, fill=tk.BOTH)
+
+    # creating the Matplotlib toolbar
+    toolbar = NavigationToolbar2Tk(canvas,
+                                   window)
+    toolbar.update()
+
+    # placing the toolbar on the Tkinter window
+    canvas.get_tk_widget().place(x=342,y=291)
+
+################################################################## GRAPH ##################################################################
+
     window.resizable(False, False)
 

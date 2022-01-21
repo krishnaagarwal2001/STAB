@@ -4,7 +4,6 @@ from tkinter import *
 from tkinter import ttk
 from Results import *
 
-
 splash_root = Tk()
 splash_root.title("STAB")
 splash_root.geometry("300x300")
@@ -16,21 +15,34 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root):
     data = [[0] * numStockPiles] * numSieves
 
     temp=0
+
     for ent in entries:
         data[int(temp /numStockPiles)][int(temp % numStockPiles)] = float(ent.get())
         temp += 1
 
+    print(data)
 
     corData = [[0] * 2] * numSieves
     temp=0
+    print(len(corData),len(corData[0]))
 
-    # print(len(corData),len(corData[0]))
     for ent in sieve_entries:
-        # print(ent.get(),temp)
-        corData[int(temp / 2)][int(temp % 2)] = float(ent.get())
-        # print(data[int(temp % numStockPiles.get())][int(temp / numStockPiles.get())], temp)
+
+        corData[int(temp/2)][int(temp % 2)] = float(ent.get())
+
+        # print(temp, ent.get(),int(temp/2),int(temp%2),corData[int(temp / 2)][int(temp % 2)],corData[0][0],corData[0][1],corData[1][0])
+
         temp += 1
 
+    print(temp)
+    # temp=0;
+    # for ent in sieve_entries:
+    #     print(ent.get(), corData[int(temp / 2)][int(temp % 2)])
+    #     if(corData[int(temp / 2)][int(temp % 2)]!=float(ent.get())):
+    #         print("False")
+    #     temp += 1
+
+    print("cordata",corData[0][0])
     filename=""
     if (int(numStockPiles) == 2):
         filename = './possibilities/p22.txt'
@@ -86,7 +98,7 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root):
                 for sieve in range(numSieves):
                     error+=((corData[sieve][0]+corData[sieve][1])/2 - val[sieve])*((corData[sieve][0]+corData[sieve][1])/2 - val[sieve])
                     # print(error)
-                currentSolution={"Solution": arr,"Error":error}
+                currentSolution={"Solution": arr,"Error":error,"val":val}
                 possibleSolutions.append(currentSolution)
 
 
@@ -105,40 +117,7 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root):
     b = datetime.datetime.now()
     print(b-a)
 
-    result_fn(root,possibleSolutions);
-    # newWindow = Toplevel(root)
-    # newWindow.geometry("500x500")
-    #
-    # solution_frame = LabelFrame(newWindow, padx=20, pady=10)
-    # solution_frame.pack(padx=10, pady=10, fill=X, expand=1, )
-    #
-    # # Canvas
-    # solutionCanvas = Canvas(solution_frame)
-    # solutionCanvas.pack(side=LEFT, fill=X, expand=1)
-    #
-    # solutionFrame = Frame(solutionCanvas)
-    #
-    # solutionCanvas.create_window((50, 50), window=solutionFrame, anchor="nw")
-    #
-    #
-    # Label_NumOfStockPiles = Label(newWindow, text="Number of Possible Solutions")
-    # Label_NumOfStockPiles.place(relx=0.3, rely=0.4, anchor=CENTER)
-    #
-    # Label_NumOfStockPiles = Label(newWindow, text=numSolutions)
-    # Label_NumOfStockPiles.place(relx=0.8, rely=0.4, anchor=CENTER)
-    #
-    # Label_NumOfStockPiles = Label(newWindow, text="Best Solution")
-    # Label_NumOfStockPiles.place(relx=0.3, rely=0.7, anchor=CENTER)
-    #
-    #
-    #
-    # if(numSolutions > 0):
-    #     Label_NumOfStockPiles = Label(newWindow, text=possibleSolutions[0]['Solution'])
-    #     Label_NumOfStockPiles.place(relx=0.8, rely=0.7, anchor=CENTER)
-    # else:
-    #     Label_NumOfStockPiles = Label(newWindow, text="NA")
-    #     Label_NumOfStockPiles.place(relx=0.8, rely=0.7, anchor=CENTER)
-
+    result_fn(root,possibleSolutions,corData,numSieves,numStockPiles);
 
 
 
