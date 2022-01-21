@@ -3,7 +3,7 @@ from operator import itemgetter
 from tkinter import *
 from tkinter import ttk
 from Results import *
-from EnterValues1.build.EnterValues1 import *
+# from EnterValues1.build.EnterValues1 import *
 from algo import *
 
 splash_root = Tk()
