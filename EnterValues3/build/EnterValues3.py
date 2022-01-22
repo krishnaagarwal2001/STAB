@@ -6,7 +6,7 @@ from Results import *
 from pathlib import Path
 
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
-
+from algo import *
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
@@ -143,7 +143,7 @@ def Enter_Values3(root,numSieves,numStocks):
         text="Calculate",
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_1 clicked"),
+        command=lambda: calculate(numStocks.get(),numSieves.get(),entries,sieve_entries,window) ,
         relief="flat"
     )
     button_1.place(

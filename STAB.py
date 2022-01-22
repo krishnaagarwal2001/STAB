@@ -33,14 +33,8 @@ def main_window():
     numSieves = IntVar()
     numSieves.set(1)
     OptionMenu(root, numSieves, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12).place(relx=0.8, rely=0.5, anchor=CENTER)
-
-
-        # Button(canvas, text="Calculate", command=lambda:calculate(numStockPiles.get(),numSieves.get(),entries,sieve_entries,newWindow)).grid(row=2*numSieves.get()+3,column=int((numStockPiles.get()+1)/2))
-
-    # print(numSieves.get(),numStockPiles.get())
     Button( text="Enter", command=lambda: Enter_Values3(root,numSieves,numStockPiles)).place(relx=0.5, rely=0.8, anchor=CENTER)
 
 
 splash_root.after(1500, main_window)
-
 mainloop()
