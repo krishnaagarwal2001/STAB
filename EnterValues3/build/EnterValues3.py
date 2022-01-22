@@ -131,11 +131,6 @@ def Enter_Values3(root,numSieves,numStocks):
     )
 
 
-
-
-
-
-
     button_image_1 = PhotoImage(
         file=relative_to_assets("button_1.png"))
     button_1 = Button(
@@ -143,6 +138,8 @@ def Enter_Values3(root,numSieves,numStocks):
         text="Calculate",
         borderwidth=0,
         highlightthickness=0,
+        bg="#3888FF",
+        fg="#FFFFFF",
         command=lambda: calculate(numStocks.get(),numSieves.get(),entries,sieve_entries,window) ,
         relief="flat"
     )
