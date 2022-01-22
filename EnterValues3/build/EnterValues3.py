@@ -139,7 +139,8 @@ def Enter_Values3(root,numSieves,numStocks):
     button_image_1 = PhotoImage(
         file=relative_to_assets("button_1.png"))
     button_1 = Button(
-        image=button_image_1,
+        window,
+        text="Calculate",
         borderwidth=0,
         highlightthickness=0,
         command=lambda: print("button_1 clicked"),
