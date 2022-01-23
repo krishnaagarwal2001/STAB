@@ -7,37 +7,35 @@ from Results import *
 
 
 def calculate(numStockPiles,numSieves,entries,sieve_entries,root):
-    data = [[0] * numStockPiles] * numSieves
-
     temp=0
 
+    data=[]
+    td=[]
     for ent in entries:
-        data[int(temp /numStockPiles)][int(temp % numStockPiles)] = float(ent.get())
+        td.append(float(ent.get()))
         temp += 1
+        if(temp==numStockPiles):
+            temp=0
+            data.append(td)
+            td=[]
+
 
     print(data)
 
-    corData = [[0] * 2] * numSieves
+    corData = []
     temp=0
-    print(len(corData),len(corData[0]))
-
+    td=[]
     for ent in sieve_entries:
-
-        corData[int(temp/2)][int(temp % 2)] = float(ent.get())
-
-        # print(temp, ent.get(),int(temp/2),int(temp%2),corData[int(temp / 2)][int(temp % 2)],corData[0][0],corData[0][1],corData[1][0])
-
+        td.append(float(ent.get()))
         temp += 1
+        if (temp == 2):
+            temp = 0
+            corData.append(td)
+            td = []
 
-    print(temp)
-    # temp=0;
-    # for ent in sieve_entries:
-    #     print(ent.get(), corData[int(temp / 2)][int(temp % 2)])
-    #     if(corData[int(temp / 2)][int(temp % 2)]!=float(ent.get())):
-    #         print("False")
-    #     temp += 1
 
-    print("cordata",corData[0][0])
+    print("cordata",corData)
+
     filename=""
     if (int(numStockPiles) == 2):
         filename = './possibilities/p22.txt'
