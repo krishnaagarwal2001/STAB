@@ -19,7 +19,7 @@ def Enter_Values3(root,numSieves,numStocks):
 
     window = Toplevel(root)
     window.geometry("1280x720")
-    window.title("Result")
+    window.title("STAB")
     window.configure(bg="#FFFFFF")
 
     canvas = Canvas(
