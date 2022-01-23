@@ -348,6 +348,17 @@ def main_window(splash_root):
         height=31.0
     )
 
+    #####RADIO BUTTON#####
+
+    # style = ttk.Style(window)
+    # style.configure("TRadiobutton",foreground="#283341", font=("OpenSansRoman Regular", 14 * -1))
+
+    valueType=StringVar(window,"Percentage")
+    Radiobutton(window, text="By Percentage (%)", variable=valueType, value="Percentage",foreground="#283341",background="grey", font=("OpenSansRoman Regular", 14 * -1)).place(x=462,y=357)
+    Radiobutton(window, text="By Weight (g)", variable=valueType, value="Weight",foreground="#283341",background="grey", font=("OpenSansRoman Regular", 14 * -1)).place(x=667, y=357)
+
+
+    #####RADIO BUTTON#####
     #####HERE#####
     window.resizable(False, False)
     window.mainloop()

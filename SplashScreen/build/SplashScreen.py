@@ -319,6 +319,14 @@ def splash():
         font=("OpenSansRoman Bold", 16 * -1)
     )
 
+    canvas.create_rectangle(
+        670.0,
+        538.0,
+        674.0,
+        542.0,
+        fill="#283341",
+        outline="")
+
     canvas.create_text(
         678.0,
         532.0,
@@ -328,22 +336,80 @@ def splash():
         font=("OpenSansRoman Regular", 14 * -1)
     )
 
+    canvas.create_rectangle(
+        670.0,
+        580.0,
+        674.0,
+        584.0,
+        fill="#283341",
+        outline="")
+
     canvas.create_text(
         678.0,
-        554.0,
+        574.0,
+        anchor="nw",
+        text="Krishna Agarwal",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 14 * -1)
+    )
+
+    canvas.create_rectangle(
+        670.0,
+        610.0,
+        674.0,
+        614.0,
+        fill="#283341",
+        outline="")
+    canvas.create_text(
+        678.0,
+        604.0,
+        anchor="nw",
+        text="Sanskar Gahoi",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 14 * -1)
+    )
+
+    canvas.create_rectangle(
+        670.0,
+        640.0,
+        674.0,
+        644.0,
+        fill="#283341",
+        outline="")
+    canvas.create_text(
+        678.0,
+        634.0,
+        anchor="nw",
+        text="Shubhank",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 14 * -1)
+    )
+    canvas.create_rectangle(
+        670.0,
+        670.0,
+        674.0,
+        674.0,
+        fill="#283341",
+        outline="")
+    canvas.create_text(
+        678.0,
+        664.0,
+        anchor="nw",
+        text="Anurag Yadav",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 14 * -1)
+    )
+
+    canvas.create_text(
+        678.0,
+        548.0,
         anchor="nw",
         text="Prof., Transportation Engg. Dept., IIT Roorkee",
         fill="#273340",
         font=("OpenSansRoman Regular", 10 * -1)
     )
 
-    canvas.create_rectangle(
-        670.0,
-        540.0,
-        674.0,
-        544.0,
-        fill="#283341",
-        outline="")
+
 
     image_image_4 = PhotoImage(
         file=relative_to_assets("image_4.png"))
