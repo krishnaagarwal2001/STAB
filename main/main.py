@@ -19,7 +19,7 @@ def main_window(splash_root):
     splash_root.destroy()
     window = Tk()
     window.geometry("1280x720")
-    window.title("Result")
+    window.title("STAB")
     window.configure(bg="#FFFFFF")
 
     canvas = Canvas(
