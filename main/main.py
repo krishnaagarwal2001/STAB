@@ -111,13 +111,13 @@ def main_window(splash_root):
         image=image_image_3
     )
 
-    # canvas.create_rectangle(
-    #     136.0,
-    #     203.0,
-    #     776.0,
-    #     398.0,
-    #     fill="#F1F5FF",
-    #     outline="")
+    canvas.create_rectangle(
+        136.0,
+        203.0,
+        776.0,
+        398.0,
+        fill="#F1F5FF",
+        outline="")
 
 
 
@@ -331,6 +331,9 @@ def main_window(splash_root):
 
     ###########DROP DOWNS#############
 
+    entries = []
+    sieve_entries = []
+
     button_1 = Button(
             window,
             text="Next -->",
@@ -338,7 +341,7 @@ def main_window(splash_root):
             highlightthickness=0,
             bg="#3888FF",
             fg="#FFFFFF",
-            command=lambda: Enter_Values3(window,numSieves,numStockPiles),
+            command=lambda: Enter_Values3(window,numSieves,numStockPiles,entries,sieve_entries),
             relief="flat"
         )
     button_1.place(
@@ -354,8 +357,8 @@ def main_window(splash_root):
     # style.configure("TRadiobutton",foreground="#283341", font=("OpenSansRoman Regular", 14 * -1))
 
     valueType=StringVar(window,"Percentage")
-    Radiobutton(window, text="By Percentage (%)", variable=valueType, value="Percentage",foreground="#283341",background="grey", font=("OpenSansRoman Regular", 14 * -1)).place(x=462,y=357)
-    Radiobutton(window, text="By Weight (g)", variable=valueType, value="Weight",foreground="#283341",background="grey", font=("OpenSansRoman Regular", 14 * -1)).place(x=667, y=357)
+    Radiobutton(window, text="By Percentage (%)", variable=valueType, value="Percentage",foreground="#283341",background="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=436,y=352)
+    Radiobutton(window, text="By Weight (g)", variable=valueType, value="Weight",foreground="#283341",background="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=600, y=352)
 
 
     #####RADIO BUTTON#####

@@ -22,7 +22,8 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles):
+def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries):
+    a = datetime.datetime.now()
     numsol=len(possibleSolutions)
 
     window =Toplevel(root)
@@ -430,9 +431,12 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles):
 
     fig = Figure(figsize=(5,3))
     plot1 = fig.add_subplot(111)
-
+    # plot1.xlabel("Sieve Number")
+    # plot1.ylabel("Percentage")
     # plotting the graph
+    plot1.scatter(x,low_lim)
     plot1.plot(x,low_lim,label="Lower Limit")
+    plot1.scatter(x, up_lim)
     plot1.plot(x,up_lim,label="Upper Limit")
 
     if (numsol > 0):
@@ -440,7 +444,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles):
 
         for i in range(0,numSieves):
             sol.append(possibleSolutions[0]['val'][i])
-
+        plot1.scatter(x,sol)
         plot1.plot(x,sol,label="Possible Solution")
 
     # creating the Tkinter canvas
@@ -460,10 +464,16 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles):
                                    window)
     toolbar.update()
 
+    # toolbar.config(background="#3888FF")
+    #
+    # for button in toolbar.winfo_children():
+    #     button.config(background="#FFFFFF",foreground="#FFFFFF")
+
     # placing the toolbar on the Tkinter window
     canvas.get_tk_widget().place(x=342,y=291)
 
 ################################################################## GRAPH ##################################################################
+
     if(len(possibleSolutions)>0):
         button_1 = Button(
             window,
@@ -482,5 +492,29 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles):
             width=108.0,
             height=31.0
         )
+    b = datetime.datetime.now()
+    print(b-a)
+
+    ###################BACK BUTTON##############
+
+    # back_button = Button(
+    #     window,
+    #     text="<--",
+    #     borderwidth=0,
+    #     highlightthickness=0,
+    #     bg="#3888FF",
+    #     fg="#FFFFFF",
+    #     command=lambda:Enter_Values3(root,numSieves,numStockPiles,entries,sieve_entries),
+    #     relief="flat"
+    # )
+    # back_button.place(
+    #     x=20.0,
+    #     y=124.0,
+    #     width=28.0,
+    #     height=28.0
+    # )
+
+    ###################BACK BUTTON##############
+
     window.resizable(False, False)
 
