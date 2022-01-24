@@ -27,7 +27,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
 
     window =Toplevel(root)
     window.geometry("1280x720")
-    window.title("Result")
+    window.title("STAB")
     window.configure(bg="#FFFFFF")
 
     canvas = Canvas(
