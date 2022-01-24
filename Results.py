@@ -8,7 +8,8 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
 NavigationToolbar2Tk)
-# from EnterValues3.build.EnterValues3 import *
+from save_report import *
+import numpy as np
 
 
 
@@ -472,6 +473,25 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     canvas.get_tk_widget().place(x=342,y=291)
 
 ################################################################## GRAPH ##################################################################
+
+    if(len(possibleSolutions)>0):
+        button_1 = Button(
+            window,
+            text="Save Report",
+            borderwidth=0,
+            highlightthickness=0,
+            bg="#C5C9C7",
+            fg="#283341",
+            command=lambda:saveresults(possibleSolutions,numSieves,numStockPiles),
+            relief="flat",
+            font = ("OpenSansRoman Regular", 16 * -1,"bold")
+        )
+        button_1.place(
+            x=239.0,
+            y=683.0,
+            width=108.0,
+            height=31.0
+        )
     b = datetime.datetime.now()
     print(b-a)
 
@@ -495,5 +515,6 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     # )
 
     ###################BACK BUTTON##############
+
     window.resizable(False, False)
 

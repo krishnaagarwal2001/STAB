@@ -110,4 +110,4 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root):
     b = datetime.datetime.now()
     print(b-a)
 
-    result_fn(root, possibleSolutions, corData, numSieves, numStockPiles,entries,sieve_entries)
+    result_fn(root, possibleSolutions, corData, numSieves, numStockPiles)
