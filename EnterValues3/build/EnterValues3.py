@@ -15,8 +15,7 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def Enter_Values3(root,numSieves,numStocks):
-
+def Enter_Values3(root,numSieves,numStocks,entries,sieve_entries):
     window = Toplevel(root)
     window.geometry("1280x720")
     window.title("Result")
@@ -305,12 +304,11 @@ def Enter_Values3(root,numSieves,numStocks):
         x1 += 109
     #####Stock Labels#####
 
+    #####Creating Entries#####
 
-    ####Entries input#####
+    ENTRY=[]
 
-    entries=[]
-
-    x1=377
+    x1 = 377
     for i in range(numStocks.get()):
         y1 = 233
         for j in range(numSieves.get()):
@@ -320,16 +318,37 @@ def Enter_Values3(root,numSieves,numStocks):
                 bg="#FFFFFF",
                 highlightthickness=0
             )
+            # entry_1.insert(0,0)
+
             entry_1.place(
                 x=x1,
                 y=y1,
                 width=101.0,
                 height=22.0
             )
-            y1+=30
-            entries.append(entry_1)
+            y1 += 30
+            ENTRY.append(entry_1)
+        x1 += 109
 
-        x1+=109
+    if(len(entries)>0):
+        temp = 0
+        for i in range(numStocks.get()):
+            for j in range(numSieves.get()):
+                ENTRY[temp].insert(0,entries[temp].get())
+                temp += 1
+
+
+    #####Creating Entries#####
+
+    ####Entries input#####
+
+    temp=0
+    entries.clear()
+    for i in range(numStocks.get()):
+        for j in range(numSieves.get()):
+            entries.append(ENTRY[temp])
+            temp+=1
+
 
 
     ####Entries input#####
