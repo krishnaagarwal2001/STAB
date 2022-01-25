@@ -15,6 +15,12 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+def reset(entries,sieve_entries):
+    for i in range(len(sieve_entries)):
+        sieve_entries[i].delete(0,END)
+    for i in range(len(entries)):
+        entries[i].delete(0,END)
+
 
 
 def Enter_Values3(root,numSieves,numStocks,sievegrad):
@@ -431,6 +437,21 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
 
 
     #####Creating Entries#####
-
+    reset_button = Button(
+        window,
+        text="Reset",
+        borderwidth=0,
+        highlightthickness=0,
+        fg="#3888FF",
+        bg="#FFFFFF",
+        command=lambda: reset(entries, sieve_entries),
+        relief="flat"
+    )
+    reset_button.place(
+        x=1094.0,
+        y=223.0,
+        width=108.0,
+        height=31.0
+    )
 
     window.resizable(False, False)
