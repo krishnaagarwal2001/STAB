@@ -2,7 +2,7 @@
 import datetime
 from operator import itemgetter
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from matplotlib.figure import Figure
@@ -25,7 +25,7 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries):
+def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries,mainroot):
     a = datetime.datetime.now()
     numsol=len(possibleSolutions)
     root.withdraw()
@@ -503,7 +503,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
             highlightthickness=0,
             bg="#C5C9C7",
             fg="#283341",
-            command=lambda: fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries),
+            command=lambda: fix(window,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries,mainroot),
             relief="flat",
             font=("OpenSansRoman Regular", 16 * -1, "bold")
         )
@@ -536,6 +536,12 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     )
 
     ###################BACK BUTTON##############
+
+    def on_closing():
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            mainroot.destroy()
+
+    window.protocol("WM_DELETE_WINDOW", on_closing)
 
     window.resizable(False, False)
 

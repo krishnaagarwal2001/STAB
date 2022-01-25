@@ -6,7 +6,7 @@ from Results import *
 # from EnterValues1.build.EnterValues1 import *
 
 
-def calculate(numStockPiles,numSieves,entries,sieve_entries,root):
+def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot):
     temp=0
 
     data=[]
@@ -110,4 +110,4 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root):
     b = datetime.datetime.now()
     print(b-a)
 
-    result_fn(root, possibleSolutions, corData, numSieves, numStockPiles,entries,sieve_entries)
+    result_fn(root, possibleSolutions, corData, numSieves, numStockPiles,entries,sieve_entries,mainroot)
