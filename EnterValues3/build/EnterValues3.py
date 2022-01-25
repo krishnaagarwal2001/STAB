@@ -257,12 +257,18 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot):
         sievenum =8
     elif (sievegrad.get() == "DBM - 26.5mm"):
         sievenum =8
-    elif (sievegrad.get() == "PQC - 31.5mm"):
-        sievenum =9
-    elif (sievegrad.get() == "PQC - 26.5mm"):
-        sievenum =9
-    elif (sievegrad.get() == "PQC - 19mm"):
-        sievenum =9
+    elif (sievegrad.get() == "PQC - 31.5mm  (crushed)"):
+        sievenum=9
+    elif (sievegrad.get() == "PQC - 31.5mm (natural)"):
+        sievenum=9
+    elif (sievegrad.get() == "PQC - 26.5mm  (crushed)"):
+        sievenum=9
+    elif (sievegrad.get() == "PQC - 26.5mm (natural)"):
+        sievenum=9
+    elif (sievegrad.get() == "PQC - 19mm  (crushed)"):
+        sievenum=9
+    elif (sievegrad.get() == "PQC - 19mm (natural)"):
+        sievenum = 9
     elif (sievegrad.get() == "DLC"):
         sievenum =9
     elif (sievegrad.get() == "WMM"):
@@ -312,12 +318,18 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot):
         array=[100,100,95,100,63,93,55,75,38,54,28,42,7,21,2,8]
     elif(sievegrad.get() == "DBM - 26.5mm"):
         array=[100,100,90,100,71,95,56,80,38,54,28,42,7,21,2,8]
-    elif (sievegrad.get() == "PQC - 31.5mm"):
+    elif (sievegrad.get() == "PQC - 31.5mm  (crushed)"):
         array=[100,100,90,100,85,95,68,88,45,65,30,55,8,30,0,10,0,5]
-    elif (sievegrad.get() =="PQC - 26.5mm"):
+    elif (sievegrad.get() =="PQC - 26.5mm  (crushed)"):
         array=[100,100,100,100,95,100,75,95,50,70,30,55,8,30,0,10,0,5]
-    elif (sievegrad.get() =="PQC - 19mm"):
+    elif (sievegrad.get() =="PQC - 19mm  (crushed)"):
         array=[100,100,100,100,100,100,90,100,48,78,30,58,8,35,0,12,0,5]
+    elif (sievegrad.get() == "PQC - 31.5mm (natural)"):
+        array=[100,100,90,100,85,95,68,88,45,65,30,55,8,30,0,10,0,2]
+    elif (sievegrad.get() =="PQC - 26.5mm (natural)"):
+        array=[100,100,100,100,95,100,75,95,50,70,30,55,8,30,0,10,0,2]
+    elif (sievegrad.get() =="PQC - 19mm (natural)"):
+        array=[100,100,100,100,100,100,90,100,48,78,30,58,8,35,0,12,0,2]
     elif(sievegrad.get() == "DLC"):
         array=[100,100,75,95,50,70,30,55,17,42,8,22,7,17,2,12,0,10]
     elif (sievegrad.get() == "WMM"):
@@ -355,17 +367,32 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot):
             sieve_entries[i].insert(0,array[i])
             sieve_entries[i].configure(state="disabled")
 
-    elif (sievegrad.get() == "PQC - 31.5mm"):
+    elif (sievegrad.get() == "PQC - 31.5mm  (crushed)"):
         for i in range(len(sieve_entries)):
             sieve_entries[i].insert(0,array[i])
             sieve_entries[i].configure(state="disabled")
 
-    elif (sievegrad.get() == "PQC - 26.5mm"):
+    elif (sievegrad.get() == "PQC - 26.5mm  (crushed)"):
         for i in range(len(sieve_entries)):
             sieve_entries[i].insert(0,array[i])
             sieve_entries[i].configure(state="disabled")
 
-    elif (sievegrad.get() == "PQC - 19mm"):
+    elif (sievegrad.get() == "PQC - 19mm  (crushed)"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif (sievegrad.get() == "PQC - 31.5mm (natural)"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif (sievegrad.get() == "PQC - 26.5mm (natural)"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif (sievegrad.get() == "PQC - 19mm (natural)"):
         for i in range(len(sieve_entries)):
             sieve_entries[i].insert(0,array[i])
             sieve_entries[i].configure(state="disabled")
