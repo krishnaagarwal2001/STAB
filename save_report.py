@@ -17,9 +17,12 @@ def saveresults(possibleSolution,numSieves,numStocks):
         t.append(possibleSolution[i]['Error'])
         sv.append(t)
 
-    data = [('csv Files', '*.csv')]
+    data = [('csv files', '*.csv')]
     filed = asksaveasfile(filetypes=data, defaultextension=data)
-    with open(filed.name,"w",newline="") as file:
-        Writer=writer(file)
-        Writer.writerow(lab)
-        Writer.writerows(sv)
+    try:
+        with open(filed.name,"w",newline="") as file:
+            Writer=writer(file)
+            Writer.writerow(lab)
+            Writer.writerows(sv)
+    except:
+        print("Please create file")
