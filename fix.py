@@ -9,10 +9,9 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
 NavigationToolbar2Tk)
 
-from back_utility import back_utl
+from filter_sol import filter_sol
 from save_report import *
 import numpy as np
-from fix import *
 
 
 
@@ -25,10 +24,10 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries):
+def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries):
     a = datetime.datetime.now()
     numsol=len(possibleSolutions)
-    root.withdraw()
+
     window =Toplevel(root)
     window.geometry("1280x720")
     window.title("STAB")
@@ -374,6 +373,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         x4=290
         y1 = 333
         y2=362
+        fix_entries=[]
         print(type(canvas))
         for i in range(0, numStockPiles):
             # print(x1,y1)
@@ -396,144 +396,63 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
                 width=325.0,
             )
 
-            canvas.create_rectangle(
-                x2,
-                y1,
-                x4,
-                y2,
-                fill="#FFFFFF",
-                outline="")
 
             # print(x2+8,y1+2)
-            canvas.create_text(
-                x2 + 8,
-                y1 + 6,
-                anchor="nw",
-                text=possibleSolutions[0]['Solution'][i],
-                fill="#283341",
-                font=("OpenSansRoman Regular", 14 * -1),
-                width=325.0,
+            entry_1 = Entry(
+                window,
+                bd=0,
+                bg="#FFFFFF",
+                highlightthickness=0
+            )
+            entry_1.place(
+                x=x2,
+                y=y1,
+                width=102.0,
+                height=29.0
             )
             y1 += 37
             y2+=37
+            fix_entries.append(entry_1)
 
-################################################################## GRAPH ##################################################################
-    # print(type(corData))
-    # print(corData,len(corData),len(corData[0]))
-
-    low_lim=[]
-    for i in range(0,numSieves):
-        low_lim.append(corData[i][0])
-    up_lim = []
-    for i in range(0, numSieves):
-        up_lim.append(corData[i][1])
-
-    x=[]
-    for i in range(1,numSieves+1):
-        x.append(i)
-
-    fig = Figure(figsize=(5,3))
-    plot1 = fig.add_subplot(111)
-    # plot1.xlabel("Sieve Number")
-    # plot1.ylabel("Percentage")
-    # plotting the graph
-    plot1.scatter(x,low_lim)
-    plot1.plot(x,low_lim,label="Lower Limit")
-    plot1.scatter(x, up_lim)
-    plot1.plot(x,up_lim,label="Upper Limit")
-
-    if (numsol > 0):
-        sol = []
-
-        for i in range(0,numSieves):
-            sol.append(possibleSolutions[0]['val'][i])
-        plot1.scatter(x,sol)
-        plot1.plot(x,sol,label="Possible Solution")
-
-    # creating the Tkinter canvas
-    # containing the Matplotlib figure
-    plot1.legend()
-    canvas = FigureCanvasTkAgg(fig,
-                               master=window)
-    canvas.draw()
-
-    # placing the canvas on the Tkinter window
-    canvas.get_tk_widget().place(x=342,y=291)
-
-    # bar1.get_tk_widget().pack(side=tk.LEFT, fill=tk.BOTH)
-
-    # creating the Matplotlib toolbar
-    toolbar = NavigationToolbar2Tk(canvas,
-                                   window)
-    toolbar.update()
-
-    # toolbar.config(background="#3888FF")
-    #
-    # for button in toolbar.winfo_children():
-    #     button.config(background="#FFFFFF",foreground="#FFFFFF")
-
-    # placing the toolbar on the Tkinter window
-    canvas.get_tk_widget().place(x=342,y=291)
-
-################################################################## GRAPH ##################################################################
-
-    if(len(possibleSolutions)>0):
-        button_1 = Button(
-            window,
-            text="Save Report",
-            borderwidth=0,
-            highlightthickness=0,
-            bg="#C5C9C7",
-            fg="#283341",
-            command=lambda:saveresults(possibleSolutions,numSieves,numStockPiles),
-            relief="flat",
-            font = ("OpenSansRoman Regular", 16 * -1,"bold")
-        )
-        button_1.place(
-            x=239.0,
-            y=683.0,
-            width=108.0,
-            height=31.0
-        )
-
-        button_2 = Button(
-            window,
-            text="Fix StockPiles",
-            borderwidth=0,
-            highlightthickness=0,
-            bg="#C5C9C7",
-            fg="#283341",
-            command=lambda: fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries),
-            relief="flat",
-            font=("OpenSansRoman Regular", 16 * -1, "bold")
-        )
-        button_2.place(
-            x=439.0,
-            y=683.0,
-            width=108.0,
-            height=31.0
-        )
+    button_1 = Button(
+        window,
+        text="Generate Solution",
+        borderwidth=0,
+        highlightthickness=0,
+        bg="#C5C9C7",
+        fg="#283341",
+        command=lambda: filter_sol(numStockPiles,numSieves,entries,sieve_entries,root,fix_entries,possibleSolutions,corData),
+        relief="flat",
+        font=("OpenSansRoman Regular", 16 * -1, "bold")
+    )
+    button_1.place(
+        x=239.0,
+        y=683.0,
+        width=208.0,
+        height=31.0
+    )
 
     b = datetime.datetime.now()
     print(b-a)
 
     ###################BACK BUTTON##############
-    back_button_1 = Button(
-        window,
-        text="<--",
-        borderwidth=0,
-        highlightthickness=0,
-        bg="#3888FF",
-        fg="#FFFFFF",
-        command=lambda: back_utl(root,window),
-        relief="flat"
-    )
-    back_button_1.place(
-        x=20.0,
-        y=124.0,
-        width=28.0,
-        height=28.0
-    )
+
+    # back_button = Button(
+    #     window,
+    #     text="<--",
+    #     borderwidth=0,
+    #     highlightthickness=0,
+    #     bg="#3888FF",
+    #     fg="#FFFFFF",
+    #     command=lambda:Enter_Values3(root,numSieves,numStockPiles,entries,sieve_entries),
+    #     relief="flat"
+    # )
+    # back_button.place(
+    #     x=20.0,
+    #     y=124.0,
+    #     width=28.0,
+    #     height=28.0
+    # )
 
     ###################BACK BUTTON##############
 
