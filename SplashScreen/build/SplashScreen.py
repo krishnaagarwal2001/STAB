@@ -103,7 +103,7 @@ def splash():
         1176.0,
         28.0,
         anchor="nw",
-        text="Version 2.3",
+        text="Version 2.0",
         fill="#FFFFFF",
         font=("Inter Medium", 12 * -1)
     )
