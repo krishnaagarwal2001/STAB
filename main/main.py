@@ -324,7 +324,7 @@ def main_window(root,mainroot):
     numSieves = IntVar()
     numSieves.set(1)
     Sieves = ttk.Combobox(window, textvariable=numSieves, width=28, height=24,state="readonly")
-    Sieves['values'] = (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+    Sieves['values'] = (1,2,3,4,5,6,7,8,9,10,11,12)
     Sieves.place(x=436, y=318, anchor="nw")
     Sieves.current()
     ######numStockPiles######
@@ -333,7 +333,7 @@ def main_window(root,mainroot):
     sieveGrad = StringVar()
     sieveGrad.set("Other")
     sieveGradation = ttk.Combobox(window, textvariable=sieveGrad, width=28, height=24,state="readonly")
-    sieveGradation['values'] = ("BC - 19mm","BC - 13.2mm","SMA - 13mm","SMA - 19mm","DBM - 37.5mm","DBM - 26.5mm","PQC - 31.5mm","PQC - 26.5mm","PQC - 19mm","DLC","WMM","Other")
+    sieveGradation['values'] = ("BC - 19mm","BC - 13.2mm","SMA - 13mm","SMA - 19mm","DBM - 37.5mm","DBM - 26.5mm","PQC - 31.5mm  (crushed)","PQC - 31.5mm (natural)","PQC - 26.5mm  (crushed)","PQC - 26.5mm (natural)","PQC - 19mm  (crushed)","PQC - 19mm (natural)","DLC","WMM","Other")
     sieveGradation.place(x=436, y=222, anchor="nw")
     sieveGradation.current()
     # print(sieveGrad.get(), type(sieveGrad.get()))
@@ -352,12 +352,19 @@ def main_window(root,mainroot):
                 Sieves.current(7)
             elif (sieveGrad.get() == "DBM - 26.5mm"):
                 Sieves.current(7)
-            elif (sieveGrad.get() == "PQC - 31.5mm"):
+            elif (sieveGrad.get() == "PQC - 31.5mm  (crushed)"):
                 Sieves.current(8)
-            elif (sieveGrad.get() == "PQC - 26.5mm"):
+            elif (sieveGrad.get() == "PQC - 31.5mm (natural)"):
                 Sieves.current(8)
-            elif (sieveGrad.get() == "PQC - 19mm"):
+            elif (sieveGrad.get() == "PQC - 26.5mm  (crushed)"):
                 Sieves.current(8)
+            elif (sieveGrad.get() == "PQC - 26.5mm (natural)"):
+                Sieves.current(8)
+            elif (sieveGrad.get() == "PQC - 19mm  (crushed)"):
+                Sieves.current(8)
+            elif (sieveGrad.get() == "PQC - 19mm (natural)"):
+                Sieves.current(8)
+
             elif (sieveGrad.get() == "DLC"):
                 Sieves.current(8)
             elif (sieveGrad.get() == "WMM"):
