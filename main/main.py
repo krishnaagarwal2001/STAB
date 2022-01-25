@@ -18,7 +18,13 @@ def relative_to_assets(path: str) -> Path:
 def main_window(root,mainroot):
     root.withdraw()
     window = Toplevel(root)
-    window.geometry("1280x720")
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    app_width = 1280
+    app_height = 720
+    x = (screen_width / 2) - (app_width / 2)
+    y = (screen_height / 2) - (app_height / 2)
+    window.geometry(f'{app_width}x{app_height}+{int(x)}+{int(y)}')
     window.title("STAB")
     window.configure(bg="#FFFFFF")
 
