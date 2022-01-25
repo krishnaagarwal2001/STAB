@@ -35,7 +35,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     app_width = 1280
     app_height = 720
     x = (screen_width / 2) - (app_width / 2)
-    y = (screen_height / 2) - (app_height / 2)
+    y = (screen_height / 2) - (app_height / 2)-30
     window.geometry(f'{app_width}x{app_height}+{int(x)}+{int(y)}')
     window.title("STAB")
     window.configure(bg="#FFFFFF")
