@@ -7,6 +7,7 @@ from pathlib import Path
 from EnterValues3.build.EnterValues3 import *
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from algo import *
+from main_utility import main_utility
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("../assets")
@@ -387,7 +388,7 @@ def main_window(root,mainroot):
             highlightthickness=0,
             bg="#3888FF",
             fg="#FFFFFF",
-            command=lambda: Enter_Values3(window,numSieves,numStockPiles,sieveGrad,mainroot),
+            command=lambda: main_utility(window,numSieves,numStockPiles,sieveGrad,mainroot),
 
             relief="flat"
         )
