@@ -81,7 +81,7 @@ def main_window(splash_root):
         63.0,
         99.0,
         anchor="nw",
-        text="Define Stocks & Sieves",
+        text="Define StockPiles & Sieves",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -192,7 +192,7 @@ def main_window(splash_root):
         160.0,
         283.0,
         anchor="nw",
-        text="No. of Stocks",
+        text="No. of StockPiles",
         fill="#283341",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -269,11 +269,11 @@ def main_window(splash_root):
         font=("OpenSansRoman Regular", 14 * -1,"bold")
     )
 
-    name=["BC","SMA","DBM","PQC","DLC","WMM","WBM"]
-    ff=["Bituminous Concrete Pavement Layers","Stone Matrix Asphalt","Dense Graded Bituminous Macadam","Pavement Quality Concrete","Dense Layer Concrete","Wet Mix Macadam","Wet Bituminous Macadam"]
+    name=["BC","SMA","DBM","PQC","DLC","WMM",]
+    ff=["Bituminous Concrete Pavement Layers","Stone Matrix Asphalt","Dense Graded Bituminous Macadam","Pavement Quality Concrete","Dense Layer Concrete","Wet Mix Macadam"]
 
     y1=238
-    for i in range(7):
+    for i in range(6):
         canvas.create_text(
             932.0,
             y1,
@@ -327,14 +327,37 @@ def main_window(splash_root):
     sieveGrad = StringVar()
     sieveGrad.set("Other")
     sieveGradation = ttk.Combobox(window, textvariable=sieveGrad, width=28, height=24,state="readonly")
-    sieveGradation['values'] = ("BC - 19mm","BC - 13.2mm","SMA - 13mm","SMA - 19mm","DBM - 37.5mm","DBM - 26.5mm","PQC","DLC","WMM","WBM","Other")
+    sieveGradation['values'] = ("BC - 19mm","BC - 13.2mm","SMA - 13mm","SMA - 19mm","DBM - 37.5mm","DBM - 26.5mm","PQC - 31.5mm","PQC - 26.5mm","PQC - 19mm","DLC","WMM","Other")
     sieveGradation.place(x=436, y=222, anchor="nw")
     sieveGradation.current()
     # print(sieveGrad.get(), type(sieveGrad.get()))
 
     def change_sieve(event):
         if(sieveGrad.get()!="Other"):
+            if (sieveGrad.get() == "BC - 19mm"):
+                Sieves.current(10)
+            elif (sieveGrad.get() == "BC - 13.2mm"):
+                Sieves.current(9)
+            elif (sieveGrad.get() == "SMA - 13mm"):
+                Sieves.current(8)
+            elif (sieveGrad.get() == "SMA - 19mm"):
+                Sieves.current(9)
+            elif (sieveGrad.get() == "DBM - 37.5mm"):
+                Sieves.current(7)
+            elif (sieveGrad.get() == "DBM - 26.5mm"):
+                Sieves.current(7)
+            elif (sieveGrad.get() == "PQC - 31.5mm"):
+                Sieves.current(8)
+            elif (sieveGrad.get() == "PQC - 26.5mm"):
+                Sieves.current(8)
+            elif (sieveGrad.get() == "PQC - 19mm"):
+                Sieves.current(8)
+            elif (sieveGrad.get() == "DLC"):
+                Sieves.current(8)
+            elif (sieveGrad.get() == "WMM"):
+                Sieves.current(7)
             Sieves.configure(state="disabled")
+
         else:
             Sieves.configure(state="readonly")
 

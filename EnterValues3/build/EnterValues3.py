@@ -88,7 +88,7 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
         63.0,
         99.0,
         anchor="nw",
-        text="Define Stocks & Sieves",
+        text="Define StockPiles & Sieves",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -250,14 +250,17 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
         sievenum =8
     elif (sievegrad.get() == "DBM - 26.5mm"):
         sievenum =8
-    elif (sievegrad.get() == "PQC"):
+    elif (sievegrad.get() == "PQC - 31.5mm"):
+        sievenum =9
+    elif (sievegrad.get() == "PQC - 26.5mm"):
+        sievenum =9
+    elif (sievegrad.get() == "PQC - 19mm"):
         sievenum =9
     elif (sievegrad.get() == "DLC"):
-        sievenum =12
+        sievenum =9
     elif (sievegrad.get() == "WMM"):
         sievenum = 8
-    elif (sievegrad.get() == "WBM"):
-        sievenum =12
+
     sieve_entries = []
     y1=233
     for i in range(sievenum):
@@ -302,14 +305,17 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
         array=[100,100,95,100,63,93,55,75,38,54,28,42,7,21,2,8]
     elif(sievegrad.get() == "DBM - 26.5mm"):
         array=[100,100,90,100,71,95,56,80,38,54,28,42,7,21,2,8]
-    elif (sievegrad.get() == "PQC"):
-        array=[]
+    elif (sievegrad.get() == "PQC - 31.5mm"):
+        array=[100,100,90,100,85,95,68,88,45,65,30,55,8,30,0,10,0,5]
+    elif (sievegrad.get() =="PQC - 26.5mm"):
+        array=[100,100,100,100,95,100,75,95,50,70,30,55,8,30,0,10,0,5]
+    elif (sievegrad.get() =="PQC - 19mm"):
+        array=[100,100,100,100,100,100,90,100,48,78,30,58,8,35,0,12,0,5]
     elif(sievegrad.get() == "DLC"):
-        array=[]
+        array=[100,100,75,95,50,70,30,55,17,42,8,22,7,17,2,12,0,10]
     elif (sievegrad.get() == "WMM"):
         array=[100,100,95,100,60,80,40,60,25,40,15,30,8,22,0,5]
-    elif (sievegrad.get() == "WBM"):
-        array=[]
+
 
 
 
@@ -342,7 +348,17 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
             sieve_entries[i].insert(0,array[i])
             sieve_entries[i].configure(state="disabled")
 
-    elif (sievegrad.get() == "PQC"):
+    elif (sievegrad.get() == "PQC - 31.5mm"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif (sievegrad.get() == "PQC - 26.5mm"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif (sievegrad.get() == "PQC - 19mm"):
         for i in range(len(sieve_entries)):
             sieve_entries[i].insert(0,array[i])
             sieve_entries[i].configure(state="disabled")
@@ -357,10 +373,7 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
             sieve_entries[i].insert(0,array[i])
             sieve_entries[i].configure(state="disabled")
 
-    elif (sievegrad.get() == "WBM"):
-        for i in range(len(sieve_entries)):
-            sieve_entries[i].insert(0,array[i])
-            sieve_entries[i].configure(state="disabled")
+
 
 
 
@@ -402,7 +415,7 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
             x1+8,
             195.0,
             anchor="nw",
-            text="Stock "+str(i+1),
+            text="StockPile "+str(i+1),
             fill="#273340",
             font=("OpenSansRoman SemiBold", 12 * -1)
         )

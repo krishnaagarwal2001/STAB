@@ -138,7 +138,7 @@ def splash():
         693.0,
         217.0,
         anchor="nw",
-        text="Define Stocks & Sieves.",
+        text="Define StockPiles & Sieves.",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
