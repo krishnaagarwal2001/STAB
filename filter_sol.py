@@ -1,7 +1,7 @@
 from FilterResults import filter_result_fn
 from operator import itemgetter
 
-def filter_sol(numStockPiles,numSieves,entries,sieve_entries,root,fix_entries,possibleSolutions,corData):
+def filter_sol(numStockPiles,numSieves,entries,sieve_entries,root,fix_entries,possibleSolutions,corData,mainroot):
     updatedSolutions=[]
     for i in range(len(possibleSolutions)):
         flag=True
@@ -14,4 +14,4 @@ def filter_sol(numStockPiles,numSieves,entries,sieve_entries,root,fix_entries,po
             updatedSolutions.append(possibleSolutions[i])
 
     updatedSolutions = sorted(updatedSolutions, key=itemgetter('Error'))
-    filter_result_fn(root, updatedSolutions, corData, numSieves, numStockPiles, entries, sieve_entries)
+    filter_result_fn(root, updatedSolutions, corData, numSieves, numStockPiles, entries, sieve_entries,mainroot)

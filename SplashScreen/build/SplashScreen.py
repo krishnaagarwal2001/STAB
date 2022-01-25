@@ -4,7 +4,8 @@ from pathlib import Path
 from main.main import *
 # from tkinter import *
 # Explicit imports to satisfy Flake8
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage,messagebox
+
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -17,7 +18,6 @@ def relative_to_assets(path: str) -> Path:
 def splash():
 
     window = Tk()
-
     window.geometry("1280x720")
     window.title("STAB")
     window.configure(bg = "#FFFFFF")
@@ -200,7 +200,7 @@ def splash():
         image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: main_window(window),
+        command=lambda: main_window(window,window),
         relief="flat"
     )
     button_1.place(
@@ -443,5 +443,11 @@ def splash():
         693.0,
         fill="#000000",
         outline="")
+
+    def on_closing():
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            window.destroy()
+
+    window.protocol("WM_DELETE_WINDOW", on_closing)
     window.resizable(False, False)
     window.mainloop()

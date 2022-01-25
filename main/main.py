@@ -1,7 +1,7 @@
 import datetime
 from operator import itemgetter
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
 from Results import *
 from pathlib import Path
 from EnterValues3.build.EnterValues3 import *
@@ -15,9 +15,9 @@ ASSETS_PATH = OUTPUT_PATH / Path("../assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def main_window(splash_root):
-    splash_root.destroy()
-    window = Tk()
+def main_window(root,mainroot):
+    root.withdraw()
+    window = Toplevel(root)
     window.geometry("1280x720")
     window.title("STAB")
     window.configure(bg="#FFFFFF")
@@ -374,7 +374,7 @@ def main_window(splash_root):
             highlightthickness=0,
             bg="#3888FF",
             fg="#FFFFFF",
-            command=lambda: Enter_Values3(window,numSieves,numStockPiles,sieveGrad),
+            command=lambda: Enter_Values3(window,numSieves,numStockPiles,sieveGrad,mainroot),
 
             relief="flat"
         )
@@ -396,6 +396,33 @@ def main_window(splash_root):
 
 
     #####RADIO BUTTON#####
+
+    #######BACK BUTTON#####
+
+    back_button_1 = Button(
+        window,
+        text="<--",
+        borderwidth=0,
+        highlightthickness=0,
+        bg="#3888FF",
+        fg="#FFFFFF",
+        command=lambda: back_utl(root, window),
+        relief="flat"
+    )
+    back_button_1.place(
+        x=20.0,
+        y=124.0,
+        width=28.0,
+        height=28.0
+    )
+
+    #######BACK BUTTON#####
     #####HERE#####
+
+    def on_closing():
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            mainroot.destroy()
+
+    window.protocol("WM_DELETE_WINDOW", on_closing)
+
     window.resizable(False, False)
-    window.mainloop()

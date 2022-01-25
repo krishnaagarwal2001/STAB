@@ -23,12 +23,12 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries):
+def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries,mainroot):
     a = datetime.datetime.now()
     numsol=len(possibleSolutions)
 
-    root.destroy()
-    window =Tk()
+    root.withdraw()
+    window =Toplevel(root)
     window.geometry("1280x720")
     window.title("STAB")
     window.configure(bg="#FFFFFF")
@@ -517,26 +517,34 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
     b = datetime.datetime.now()
     print(b-a)
 
-    ###################BACK BUTTON##############
+    #######BACK BUTTON#####
 
-    # back_button = Button(
-    #     window,
-    #     text="<--",
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     bg="#3888FF",
-    #     fg="#FFFFFF",
-    #     command=lambda:Enter_Values3(root,numSieves,numStockPiles,entries,sieve_entries),
-    #     relief="flat"
-    # )
-    # back_button.place(
-    #     x=20.0,
-    #     y=124.0,
-    #     width=28.0,
-    #     height=28.0
-    # )
+    back_button_1 = Button(
+        window,
+        text="<--",
+        borderwidth=0,
+        highlightthickness=0,
+        bg="#3888FF",
+        fg="#FFFFFF",
+        command=lambda: back_utl(root, window),
+        relief="flat"
+    )
+    back_button_1.place(
+        x=20.0,
+        y=124.0,
+        width=28.0,
+        height=28.0
+    )
 
-    ###################BACK BUTTON##############
+    #######BACK BUTTON#####
+    #####HERE#####
+
+    def on_closing():
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            print(mainloop)
+            mainroot.destroy()
+
+    window.protocol("WM_DELETE_WINDOW", on_closing)
 
     window.resizable(False, False)
 

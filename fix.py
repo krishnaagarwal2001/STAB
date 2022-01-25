@@ -2,13 +2,14 @@
 import datetime
 from operator import itemgetter
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
 NavigationToolbar2Tk)
 
+from back_utility import back_utl
 from filter_sol import filter_sol
 from save_report import *
 import numpy as np
@@ -24,13 +25,14 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries):
+def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries,mainroot):
     a = datetime.datetime.now()
     numsol=len(possibleSolutions)
-
+    print("HELL")
+    root.withdraw()
     window =Toplevel(root)
     window.geometry("1280x720")
-    window.title("STAB")
+    window.title("FIX")
     window.configure(bg="#FFFFFF")
 
     canvas = Canvas(
@@ -421,7 +423,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         highlightthickness=0,
         bg="#C5C9C7",
         fg="#283341",
-        command=lambda: filter_sol(numStockPiles,numSieves,entries,sieve_entries,root,fix_entries,possibleSolutions,corData),
+        command=lambda: filter_sol(numStockPiles,numSieves,entries,sieve_entries,window,fix_entries,possibleSolutions,corData,mainroot),
         relief="flat",
         font=("OpenSansRoman Regular", 16 * -1, "bold")
     )
@@ -435,26 +437,31 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
     b = datetime.datetime.now()
     print(b-a)
 
-    ###################BACK BUTTON##############
+    #######BACK BUTTON#####
 
-    # back_button = Button(
-    #     window,
-    #     text="<--",
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     bg="#3888FF",
-    #     fg="#FFFFFF",
-    #     command=lambda:Enter_Values3(root,numSieves,numStockPiles,entries,sieve_entries),
-    #     relief="flat"
-    # )
-    # back_button.place(
-    #     x=20.0,
-    #     y=124.0,
-    #     width=28.0,
-    #     height=28.0
-    # )
+    back_button_1 = Button(
+        window,
+        text="<--",
+        borderwidth=0,
+        highlightthickness=0,
+        bg="#3888FF",
+        fg="#FFFFFF",
+        command=lambda: back_utl(root, window),
+        relief="flat"
+    )
+    back_button_1.place(
+        x=20.0,
+        y=124.0,
+        width=28.0,
+        height=28.0
+    )
 
-    ###################BACK BUTTON##############
+    #######BACK BUTTON#####
+    print(mainroot)
+    def on_closing():
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            mainroot.destroy()
 
+    window.protocol("WM_DELETE_WINDOW", on_closing)
     window.resizable(False, False)
 

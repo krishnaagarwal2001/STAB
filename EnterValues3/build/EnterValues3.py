@@ -1,7 +1,7 @@
 import datetime
 from operator import itemgetter
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
 from Results import *
 from pathlib import Path
 
@@ -23,7 +23,8 @@ def reset(entries,sieve_entries):
 
 
 
-def Enter_Values3(root,numSieves,numStocks,sievegrad):
+def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot):
+    root.withdraw()
     window = Toplevel(root)
     window.geometry("1280x720")
     window.title("STAB")
@@ -147,7 +148,7 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
         highlightthickness=0,
         bg="#3888FF",
         fg="#FFFFFF",
-        command=lambda: calculate(numStocks.get(),sievenum,entries,sieve_entries,window) ,
+        command=lambda: calculate(numStocks.get(),sievenum,entries,sieve_entries,window,mainroot) ,
         relief="flat"
     )
     button_1.place(
@@ -181,21 +182,21 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
         fill="#000000",
         outline="")
 
-    button_image_3 = PhotoImage(
-        file=relative_to_assets("button_3.png"))
-    button_3 = Button(
-        image=button_image_3,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_3 clicked"),
-        relief="flat"
-    )
-    button_3.place(
-        x=20.0,
-        y=124.0,
-        width=28.0,
-        height=28.0
-    )
+    # button_image_3 = PhotoImage(
+    #     file=relative_to_assets("button_3.png"))
+    # button_3 = Button(
+    #     image=button_image_3,
+    #     borderwidth=0,
+    #     highlightthickness=0,
+    #     command=lambda: print("button_3 clicked"),
+    #     relief="flat"
+    # )
+    # button_3.place(
+    #     x=20.0,
+    #     y=124.0,
+    #     width=28.0,
+    #     height=28.0
+    # )
 
     ###Upper Lower Bound Blue box###
     canvas.create_rectangle(
@@ -466,5 +467,32 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad):
         width=108.0,
         height=31.0
     )
+
+    #######BACK BUTTON#####
+
+    back_button_1 = Button(
+        window,
+        text="<--",
+        borderwidth=0,
+        highlightthickness=0,
+        bg="#3888FF",
+        fg="#FFFFFF",
+        command=lambda: back_utl(root, window),
+        relief="flat"
+    )
+    back_button_1.place(
+        x=20.0,
+        y=124.0,
+        width=28.0,
+        height=28.0
+    )
+
+    #######BACK BUTTON#####
+
+    def on_closing():
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            mainroot.destroy()
+
+    window.protocol("WM_DELETE_WINDOW", on_closing)
 
     window.resizable(False, False)
