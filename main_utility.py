@@ -1,4 +1,4 @@
-from EnterValues3.build.EnterValues3 import Enter_Values3
+from EnterValues3 import Enter_Values3
 from EnterValues4.build.EnterValues4 import Enter_Values4
 
 

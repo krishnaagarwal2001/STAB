@@ -1,20 +1,5 @@
-import datetime
-from operator import itemgetter
-from tkinter import *
-from tkinter import ttk, messagebox
-from Results import *
-from pathlib import Path
-from EnterValues3.build.EnterValues3 import *
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from algo import *
 from main_utility import main_utility
-
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path("../assets")
-
-
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
 
 def main_window(root,mainroot):
     root.withdraw()
@@ -94,24 +79,24 @@ def main_window(root,mainroot):
     )
 
     image_image_1 = PhotoImage(
-        file=relative_to_assets("image_1.png"))
+        file="assets/next_write.png")
     image_1 = canvas.create_image(
-        194.0,
-        108.0,
+        215.0,
+        107.0,
         image=image_image_1
     )
 
     image_image_2 = PhotoImage(
-        file=relative_to_assets("image_2.png"))
+        file="assets/IITR_Logo.png")
     image_2 = canvas.create_image(
-        10.0,
-        15.0,
+        35.0,
+        40.0,
         image=image_image_2
     )
 
 
     image_image_3 = PhotoImage(
-        file=relative_to_assets("image_3.png"))
+        file="assets/copyright.png")
     image_3 = canvas.create_image(
         1118.0,
         55.0,
@@ -130,59 +115,74 @@ def main_window(root,mainroot):
 
 
 
-    # entry_image_1 = PhotoImage(
-    #     file=relative_to_assets("entry_1.png"))
-    # entry_bg_1 = canvas.create_image(
-    #     197.5,
-    #     245.0,
-    #     image=entry_image_1
-    # )
+    entry_image_1 = PhotoImage(
+        file="assets/white_entry.png")
+    entry_bg_1 = canvas.create_image(
+        197.5,
+        245.0,
+        image=entry_image_1
+    )
 
 
-    # button_image_1 = PhotoImage(
-    #     file=relative_to_assets("button_1.png"))
-    #
+    button_image_1 = PhotoImage(
+        file="assets/calculate_button.png")
 
-    # button_image_2 = PhotoImage(
-    #     file=relative_to_assets("button_2.png"))
-    # button_2 = Button(
-    #     image=button_image_2,
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     command=lambda: print("button_2 clicked"),
-    #     relief="flat"
-    # )
-    # button_2.place(
-    #     x=1094.0,
-    #     y=223.0,
-    #     width=108.0,
-    #     height=31.0
-    # )
+    button_1 = Button(
+        window,
+        image=button_image_1,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: main_utility(window, numSieves, numStockPiles, sieveGrad, mainroot),
+        relief="flat"
+    )
+    button_1.place(
+        x=668.0,
+        y=419.0,
+        width=108.0,
+        height=31.0
+    )
 
-    # canvas.create_rectangle(
-    #     20.0,
-    #     124.0,
-    #     48.0,
-    #     152.0,
-    #     fill="#000000",
-    #     outline="")
+    button_image_2 = PhotoImage(
+        file="assets/reset_button.png")
+    button_2 = Button(
+        window,
+        image=button_image_2,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: print("HELL"),
+        relief="flat"
+    )
+    button_2.place(
+        x=548.0,
+        y=419.0,
+        width=108.0,
+        height=31.0
+    )
 
-    # button_image_3 = PhotoImage(
-    #     file=relative_to_assets("button_3.png"))
-    # button_3 = Button(
-    #     window,
-    #     image=button_image_3,
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     command=lambda: print("button_3 clicked"),
-    #     relief="flat"
-    # )
-    # button_3.place(
-    #     x=20.0,
-    #     y=124.0,
-    #     width=28.0,
-    #     height=28.0
-    # )
+    canvas.create_rectangle(
+        20.0,
+        124.0,
+        48.0,
+        152.0,
+        fill="#000000",
+        outline="")
+
+    button_image_3 = PhotoImage(
+        file="assets/back_button.png")
+    button_3 = Button(
+        window,
+        image=button_image_3,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda:back_utl(root, window),
+        relief="flat"
+    )
+    button_3.place(
+        x=20.0,
+        y=124.0,
+        width=28.0,
+        height=28.0
+    )
 
     #####HERE#####
 
@@ -381,23 +381,7 @@ def main_window(root,mainroot):
     ###########DROP DOWNS#############
 
 
-    button_1 = Button(
-            window,
-            text="Next -->",
-            borderwidth=0,
-            highlightthickness=0,
-            bg="#3888FF",
-            fg="#FFFFFF",
-            command=lambda: main_utility(window,numSieves,numStockPiles,sieveGrad,mainroot),
 
-            relief="flat"
-        )
-    button_1.place(
-        x=668.0,
-        y=419.0,
-        width=108.0,
-        height=31.0
-    )
 
     #####RADIO BUTTON#####
 
@@ -411,26 +395,6 @@ def main_window(root,mainroot):
 
     #####RADIO BUTTON#####
 
-    #######BACK BUTTON#####
-
-    back_button_1 = Button(
-        window,
-        text="<--",
-        borderwidth=0,
-        highlightthickness=0,
-        bg="#3888FF",
-        fg="#FFFFFF",
-        command=lambda: back_utl(root, window),
-        relief="flat"
-    )
-    back_button_1.place(
-        x=20.0,
-        y=124.0,
-        width=28.0,
-        height=28.0
-    )
-
-    #######BACK BUTTON#####
     #####HERE#####
 
     def on_closing():
@@ -440,3 +404,4 @@ def main_window(root,mainroot):
     window.protocol("WM_DELETE_WINDOW", on_closing)
 
     window.resizable(False, False)
+    window.mainloop()

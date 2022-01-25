@@ -1,22 +1,10 @@
-
-
-from pathlib import Path
-from main.main import *
+from main import *
 # from tkinter import *
 # Explicit imports to satisfy Flake8
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage,messagebox
+from tkinter import Tk, Canvas, Button, PhotoImage,messagebox
 
-
-
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path("./assets")
-
-
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
 
 def splash():
-
     window = Tk()
     screen_width=window.winfo_screenwidth()
     screen_height = window.winfo_screenheight()
@@ -66,7 +54,7 @@ def splash():
         outline="")
 
     image_image_1 = PhotoImage(
-        file=relative_to_assets("image_1.png"))
+        file="assets\main_pic.png")
     image_1 = canvas.create_image(
         320.0,
         400.0,
@@ -118,7 +106,7 @@ def splash():
     )
 
     image_image_2 = PhotoImage(
-        file=relative_to_assets("image_2.png"))
+        file="assets/IITR_Logo.png")
     image_2 = canvas.create_image(
         35.0,
         40.0,
@@ -126,7 +114,7 @@ def splash():
     )
 
     image_image_3 = PhotoImage(
-        file=relative_to_assets("image_3.png"))
+        file="assets\copyright.png")
     image_3 = canvas.create_image(
         1118.0,
         55.0,
@@ -202,7 +190,7 @@ def splash():
         outline="")
 
     button_image_1 = PhotoImage(
-        file=relative_to_assets("button_1.png"))
+        file="assets/start_button.png")
     button_1 = Button(
         image=button_image_1,
         borderwidth=0,
@@ -218,7 +206,7 @@ def splash():
     )
 
     button_image_2 = PhotoImage(
-        file=relative_to_assets("button_2.png"))
+        file="assets/read_manual_button.png")
     button_2 = Button(
         image=button_image_2,
         borderwidth=0,
@@ -243,7 +231,7 @@ def splash():
     )
 
     button_image_3 = PhotoImage(
-        file=relative_to_assets("button_3.png"))
+        file="assets/next_image_button.png")
     button_3 = Button(
         image=button_image_3,
         borderwidth=0,
@@ -259,7 +247,7 @@ def splash():
     )
 
     button_image_4 = PhotoImage(
-        file=relative_to_assets("button_4.png"))
+        file="assets/previous_image_button.png")
     button_4 = Button(
         image=button_image_4,
         borderwidth=0,
@@ -419,7 +407,7 @@ def splash():
 
 
     image_image_4 = PhotoImage(
-        file=relative_to_assets("image_4.png"))
+        file="assets/toolbar.png")
     image_4 = canvas.create_image(
         1022.0,
         335.0,
@@ -436,7 +424,7 @@ def splash():
     )
 
     image_image_5 = PhotoImage(
-        file=relative_to_assets("image_5.png"))
+        file="assets/resources.png")
     image_5 = canvas.create_image(
         1048.0,
         686.0,

@@ -1,5 +1,5 @@
 
-from SplashScreen.build.SplashScreen import *
+from SplashScreen import *
 
 splash()
 
