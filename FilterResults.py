@@ -8,8 +8,6 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
 NavigationToolbar2Tk)
-
-from back_utility import back_utl
 from save_report import *
 import numpy as np
 from fix import *
@@ -25,11 +23,12 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries):
+def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries):
     a = datetime.datetime.now()
     numsol=len(possibleSolutions)
-    root.withdraw()
-    window =Toplevel(root)
+
+    root.destroy()
+    window =Tk()
     window.geometry("1280x720")
     window.title("STAB")
     window.configure(bg="#FFFFFF")
@@ -65,7 +64,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         63.0,
         121.0,
         anchor="nw",
-        text="Result",
+        text="Filter Result",
         fill="#3888FF",
         font=("Inter Medium", 28 * -1)
     )
@@ -160,37 +159,37 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         font=("Inter Regular", 16 * -1)
     )
 
-    button_image_1 = PhotoImage(
-        file=relative_to_assets("button_1.png"))
-    button_1 = Button(
-        image=button_image_1,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_1 clicked"),
-        relief="flat"
-    )
-    button_1.place(
-        x=659.0,
-        y=675.0,
-        width=25.0,
-        height=25.0
-    )
+    # button_image_1 = PhotoImage(
+    #     file=relative_to_assets("button_1.png"))
+    # button_1 = Button(
+    #     image=button_image_1,
+    #     borderwidth=0,
+    #     highlightthickness=0,
+    #     command=lambda: print("button_1 clicked"),
+    #     relief="flat"
+    # )
+    # button_1.place(
+    #     x=659.0,
+    #     y=675.0,
+    #     width=25.0,
+    #     height=25.0
+    # )
 
-    button_image_2 = PhotoImage(
-        file=relative_to_assets("button_2.png"))
-    button_2 = Button(
-        image=button_image_2,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_2 clicked"),
-        relief="flat"
-    )
-    button_2.place(
-        x=596.0,
-        y=675.0,
-        width=25.0,
-        height=25.0
-    )
+    # button_image_2 = PhotoImage(
+    #     file=relative_to_assets("button_2.png"))
+    # button_2 = Button(
+    #     image=button_image_2,
+    #     borderwidth=0,
+    #     highlightthickness=0,
+    #     command=lambda: print("button_2 clicked"),
+    #     relief="flat"
+    # )
+    # button_2.place(
+    #     x=596.0,
+    #     y=675.0,
+    #     width=25.0,
+    #     height=25.0
+    # )
 
     canvas.create_text(
         1001.0,
@@ -249,37 +248,37 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         font=("OpenSansRoman Regular", 14 * -1)
     )
 
-    image_image_1 = PhotoImage(
-        file=relative_to_assets("image_1.png"))
-    image_1 = canvas.create_image(
-        194.0,
-        108.0,
-        image=image_image_1
-    )
+    # image_image_1 = PhotoImage(
+    #     file=relative_to_assets("image_1.png"))
+    # image_1 = canvas.create_image(
+    #     194.0,
+    #     108.0,
+    #     image=image_image_1
+    # )
+    #
+    # image_image_2 = PhotoImage(
+    #     file=relative_to_assets("image_2.png"))
+    # image_2 = canvas.create_image(
+    #     280.0,
+    #     108.0,
+    #     image=image_image_2
+    # )
 
-    image_image_2 = PhotoImage(
-        file=relative_to_assets("image_2.png"))
-    image_2 = canvas.create_image(
-        280.0,
-        108.0,
-        image=image_image_2
-    )
-
-    button_image_3 = PhotoImage(
-        file=relative_to_assets("button_3.png"))
-    button_3 = Button(
-        image=button_image_3,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_3 clicked"),
-        relief="flat"
-    )
-    button_3.place(
-        x=20.0,
-        y=124.0,
-        width=28.0,
-        height=28.0
-    )
+    # button_image_3 = PhotoImage(
+    #     file=relative_to_assets("button_3.png"))
+    # button_3 = Button(
+    #     image=button_image_3,
+    #     borderwidth=0,
+    #     highlightthickness=0,
+    #     command=lambda: print("button_3 clicked"),
+    #     relief="flat"
+    # )
+    # button_3.place(
+    #     x=20.0,
+    #     y=124.0,
+    #     width=28.0,
+    #     height=28.0
+    # )
 
     canvas.create_text(
         78.0,
@@ -351,23 +350,24 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         fill="#000000",
         outline="")
 
-    image_image_3 = PhotoImage(
-        file=relative_to_assets("image_3.png"))
-    image_3 = canvas.create_image(
-        35.0,
-        40.0,
-        image=image_image_3
-    )
-
-    image_image_4 = PhotoImage(
-        file=relative_to_assets("image_4.png"))
-    image_4 = canvas.create_image(
-        1118.0,
-        55.0,
-        image=image_image_4
-    )
+    # image_image_3 = PhotoImage(
+    #     file=relative_to_assets("image_3.png"))
+    # image_3 = canvas.create_image(
+    #     35.0,
+    #     40.0,
+    #     image=image_image_3
+    # )
+    #
+    # image_image_4 = PhotoImage(
+    #     file=relative_to_assets("image_4.png"))
+    # image_4 = canvas.create_image(
+    #     1118.0,
+    #     55.0,
+    #     image=image_image_4
+    # )
 
     if (numsol > 0):
+        print(possibleSolutions[0])
         x1 = 82
         x2 = 188
         x3=184
@@ -496,44 +496,45 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
             height=31.0
         )
 
-        button_2 = Button(
-            window,
-            text="Fix StockPiles",
-            borderwidth=0,
-            highlightthickness=0,
-            bg="#C5C9C7",
-            fg="#283341",
-            command=lambda: fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries),
-            relief="flat",
-            font=("OpenSansRoman Regular", 16 * -1, "bold")
-        )
-        button_2.place(
-            x=439.0,
-            y=683.0,
-            width=108.0,
-            height=31.0
-        )
+        # button_2 = Button(
+        #     window,
+        #     text="Fix StockPiles",
+        #     borderwidth=0,
+        #     highlightthickness=0,
+        #     bg="#C5C9C7",
+        #     fg="#283341",
+        #     command=lambda: fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries),
+        #     relief="flat",
+        #     font=("OpenSansRoman Regular", 16 * -1, "bold")
+        # )
+        # button_2.place(
+        #     x=439.0,
+        #     y=683.0,
+        #     width=108.0,
+        #     height=31.0
+        # )
 
     b = datetime.datetime.now()
     print(b-a)
 
     ###################BACK BUTTON##############
-    back_button_1 = Button(
-        window,
-        text="<--",
-        borderwidth=0,
-        highlightthickness=0,
-        bg="#3888FF",
-        fg="#FFFFFF",
-        command=lambda: back_utl(root,window),
-        relief="flat"
-    )
-    back_button_1.place(
-        x=20.0,
-        y=124.0,
-        width=28.0,
-        height=28.0
-    )
+
+    # back_button = Button(
+    #     window,
+    #     text="<--",
+    #     borderwidth=0,
+    #     highlightthickness=0,
+    #     bg="#3888FF",
+    #     fg="#FFFFFF",
+    #     command=lambda:Enter_Values3(root,numSieves,numStockPiles,entries,sieve_entries),
+    #     relief="flat"
+    # )
+    # back_button.place(
+    #     x=20.0,
+    #     y=124.0,
+    #     width=28.0,
+    #     height=28.0
+    # )
 
     ###################BACK BUTTON##############
 

@@ -343,8 +343,6 @@ def main_window(splash_root):
 
     ###########DROP DOWNS#############
 
-    entries = []
-    sieve_entries = []
 
     button_1 = Button(
             window,
@@ -353,7 +351,8 @@ def main_window(splash_root):
             highlightthickness=0,
             bg="#3888FF",
             fg="#FFFFFF",
-            command=lambda: Enter_Values3(window,numSieves,numStockPiles,entries,sieve_entries,sieveGrad),
+            command=lambda: Enter_Values3(window,numSieves,numStockPiles,sieveGrad),
+
             relief="flat"
         )
     button_1.place(
