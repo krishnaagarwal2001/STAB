@@ -15,7 +15,7 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def Enter_Values3(root,numSieves,numStocks,entries,sieve_entries):
+def Enter_Values3(root,numSieves,numStocks,entries,sieve_entries,sievegrad):
     window = Toplevel(root)
     window.geometry("1280x720")
     window.title("STAB")
@@ -139,7 +139,7 @@ def Enter_Values3(root,numSieves,numStocks,entries,sieve_entries):
         highlightthickness=0,
         bg="#3888FF",
         fg="#FFFFFF",
-        command=lambda: calculate(numStocks.get(),numSieves.get(),entries,sieve_entries,window) ,
+        command=lambda: calculate(numStocks.get(),sievenum,entries,sieve_entries,window) ,
         relief="flat"
     )
     button_1.place(
@@ -229,10 +229,30 @@ def Enter_Values3(root,numSieves,numStocks,entries,sieve_entries):
     ######Upper Lower Bound######
 
     #####SIEVE ENTRIES####
-
+    sievenum=numSieves.get()
+    if(sievegrad.get()=="BC - 19mm"):
+        sievenum=11
+    elif(sievegrad.get()=="BC - 13.2mm"):
+        sievenum = 10
+    elif (sievegrad.get() == "SMA - 13mm"):
+        sievenum =9
+    elif (sievegrad.get() == "SMA - 19mm"):
+        sievenum =10
+    elif (sievegrad.get() == "DBM - 37.5mm"):
+        sievenum =8
+    elif (sievegrad.get() == "DBM - 26.5mm"):
+        sievenum =8
+    elif (sievegrad.get() == "PQC"):
+        sievenum =9
+    elif (sievegrad.get() == "DLC"):
+        sievenum =12
+    elif (sievegrad.get() == "WMM"):
+        sievenum = 8
+    elif (sievegrad.get() == "WBM"):
+        sievenum =12
     sieve_entries = []
     y1=233
-    for i in range(numSieves.get()):
+    for i in range(sievenum):
         entry_1 = Entry(
             window,
             bd=0,
@@ -261,13 +281,90 @@ def Enter_Values3(root,numSieves,numStocks,entries,sieve_entries):
         sieve_entries.append(entry_2)
         y1+=30
 
+    array=[]
+    if (sievegrad.get() == "BC - 19mm"):
+        array=[100,100,90,100,59,79,52,72,35,55,28,44,20,34,15,27,10,20,5,13]
+    elif (sievegrad.get() == "BC - 13.2mm"):
+        array=[100,100,90,100,70,88,53,71,42,58,34,48,26,38,18,28,12,20,4,10]
+    elif (sievegrad.get() == "SMA - 13mm"):
+        array=[100,100,90,100,50,75,20,28,16,24,13,21,12,18,10,20,8,12]
+    elif(sievegrad.get() == "SMA - 19mm"):
+        array=[100,100,90,100,45,70,25,60,20,28,16,24,13,21,12,18,10,20,8,12]
+    elif(sievegrad.get() == "DBM - 37.5mm"):
+        array=[100,100,95,100,63,93,55,75,38,54,28,42,7,21,2,8]
+    elif(sievegrad.get() == "DBM - 26.5mm"):
+        array=[100,100,90,100,71,95,56,80,38,54,28,42,7,21,2,8]
+    elif (sievegrad.get() == "PQC"):
+        array=[]
+    elif(sievegrad.get() == "DLC"):
+        array=[]
+    elif (sievegrad.get() == "WMM"):
+        array=[100,100,95,100,60,80,40,60,25,40,15,30,8,22,0,5]
+    elif (sievegrad.get() == "WBM"):
+        array=[]
+
+
+
+
+    if (sievegrad.get() == "BC - 19mm"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+    elif (sievegrad.get() == "BC - 13.2mm"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+    elif (sievegrad.get() == "SMA - 13mm"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif(sievegrad.get() == "SMA - 19mm"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif(sievegrad.get() == "DBM - 37.5mm"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif(sievegrad.get() == "DBM - 26.5mm"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif (sievegrad.get() == "PQC"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif(sievegrad.get() == "DLC"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif (sievegrad.get() == "WMM"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+    elif (sievegrad.get() == "WBM"):
+        for i in range(len(sieve_entries)):
+            sieve_entries[i].insert(0,array[i])
+            sieve_entries[i].configure(state="disabled")
+
+
+
+
+
 
 
     #####SIEVE ENTRIES####
 
     #####Sieve labels#####
     y1=236.0
-    for i in range(numSieves.get()):
+    for i in range(sievenum):
         canvas.create_text(
             79.0,
             y1,
@@ -311,7 +408,7 @@ def Enter_Values3(root,numSieves,numStocks,entries,sieve_entries):
     x1 = 377
     for i in range(numStocks.get()):
         y1 = 233
-        for j in range(numSieves.get()):
+        for j in range(sievenum):
             entry_1 = Entry(
                 window,
                 bd=0,
@@ -333,7 +430,7 @@ def Enter_Values3(root,numSieves,numStocks,entries,sieve_entries):
     if(len(entries)>0):
         temp = 0
         for i in range(numStocks.get()):
-            for j in range(numSieves.get()):
+            for j in range(sievenum):
                 ENTRY[temp].insert(0,entries[temp].get())
                 temp += 1
 
@@ -345,7 +442,7 @@ def Enter_Values3(root,numSieves,numStocks,entries,sieve_entries):
     temp=0
     entries.clear()
     for i in range(numStocks.get()):
-        for j in range(numSieves.get()):
+        for j in range(sievenum):
             entries.append(ENTRY[temp])
             temp+=1
 

@@ -269,10 +269,11 @@ def main_window(splash_root):
         font=("OpenSansRoman Regular", 14 * -1,"bold")
     )
 
-    name=["WMM","DBM","BC","SMA","DLC","PQC"]
+    name=["BC","SMA","DBM","PQC","DLC","WMM","WBM"]
+    ff=["Bituminous Concrete Pavement Layers","Stone Matrix Asphalt","Dense Graded Bituminous Macadam","Pavement Quality Concrete","Dense Layer Concrete","Wet Mix Macadam","Wet Bituminous Macadam"]
 
     y1=238
-    for i in range(6):
+    for i in range(7):
         canvas.create_text(
             932.0,
             y1,
@@ -294,7 +295,7 @@ def main_window(splash_root):
             991.0,
             y1,
             anchor="nw",
-            text="Lorem ipsum doler sit amen",
+            text=ff[i],
             fill="#283341",
             font=("OpenSansRoman Regular", 12 * -1)
         )
@@ -306,27 +307,38 @@ def main_window(splash_root):
     ######numStockPiles######
     numStockPiles = IntVar()
     numStockPiles.set(2)
-    Stock=ttk.Combobox(window, textvariable=numStockPiles,width=28,height=24)
+    Stock=ttk.Combobox(window, textvariable=numStockPiles,width=28,height=24,state="readonly")
     Stock['values']=(2,3,4,5)
     Stock.place(x=436,y=283, anchor="nw")
     Stock.current()
+
     ######numStockPiles######
 
     ######numStockPiles######
     numSieves = IntVar()
     numSieves.set(1)
-    Sieves = ttk.Combobox(window, textvariable=numSieves, width=28, height=24)
+    Sieves = ttk.Combobox(window, textvariable=numSieves, width=28, height=24,state="readonly")
     Sieves['values'] = (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
     Sieves.place(x=436, y=318, anchor="nw")
     Sieves.current()
     ######numStockPiles######
 
     ######numStockPiles######
-    sieveGradation = StringVar()
-    sieveGradation = ttk.Combobox(window, textvariable=sieveGradation, width=28, height=24)
-    sieveGradation['values'] = ("WMM","DBM - 37.5mm","DBM - 26.5mm","BC - 19mm","BC - 13.2mm","SMA - 13mm","SMA - 19mm","DLC","PQC","Other")
+    sieveGrad = StringVar()
+    sieveGrad.set("Other")
+    sieveGradation = ttk.Combobox(window, textvariable=sieveGrad, width=28, height=24,state="readonly")
+    sieveGradation['values'] = ("BC - 19mm","BC - 13.2mm","SMA - 13mm","SMA - 19mm","DBM - 37.5mm","DBM - 26.5mm","PQC","DLC","WMM","WBM","Other")
     sieveGradation.place(x=436, y=222, anchor="nw")
-    sieveGradation.current(0)
+    sieveGradation.current()
+    # print(sieveGrad.get(), type(sieveGrad.get()))
+
+    def change_sieve(event):
+        if(sieveGrad.get()!="Other"):
+            Sieves.configure(state="disabled")
+        else:
+            Sieves.configure(state="readonly")
+
+    sieveGradation.bind("<<ComboboxSelected>>",change_sieve)
     ######numStockPiles######
 
     ###########DROP DOWNS#############
@@ -341,7 +353,7 @@ def main_window(splash_root):
             highlightthickness=0,
             bg="#3888FF",
             fg="#FFFFFF",
-            command=lambda: Enter_Values3(window,numSieves,numStockPiles,entries,sieve_entries),
+            command=lambda: Enter_Values3(window,numSieves,numStockPiles,entries,sieve_entries,sieveGrad),
             relief="flat"
         )
     button_1.place(
