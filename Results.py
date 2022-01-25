@@ -380,7 +380,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         x4=290
         y1 = 333
         y2=362
-        print(type(canvas))
+
         for i in range(0, numStockPiles):
             # print(x1,y1)
             canvas.create_rectangle(
@@ -521,7 +521,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         )
 
     b = datetime.datetime.now()
-    print(b-a)
+    print("Result Page Time",b-a)
 
     ###################BACK BUTTON##############
     back_button_1 = Button(
