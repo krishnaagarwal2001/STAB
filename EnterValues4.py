@@ -7,7 +7,6 @@ from pathlib import Path
 
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from algo import *
-from weightretained import result_utility
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("EnterValues4/build/assets")
@@ -141,7 +140,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
         image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: result_utility(numStocks.get(),sievenum,entries,sieve_entries,window,mainroot,wp),
+        command=lambda: calculate(numStocks.get(),sievenum,entries,sieve_entries,window,mainroot,wp,pan),
         relief="flat"
     )
     button_1.place(
@@ -474,6 +473,15 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
         )
         y1+=30
 
+    if (wp.get() == "Weight"):
+        canvas.create_text(
+            79.0,
+            y1,
+            anchor="nw",
+            text="Pan",
+            fill="#273340",
+            font=("OpenSansRoman Regular", 12 * -1)
+        )
 
     #####Sieve labels#####
 
@@ -504,6 +512,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
 
 
     entries=[]
+    pan=[]
     x1 = 423
     for i in range(numStocks.get()):
         y1 = 233
@@ -524,6 +533,23 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
             )
             y1 += 30
             entries.append(entry_1)
+
+        if (wp.get() == "Weight"):
+            entry_1 = Entry(
+                window,
+                bd=0,
+                bg="#FFFFFF",
+                highlightthickness=0
+            )
+            # entry_1.insert(0,0)
+
+            entry_1.place(
+                x=x1,
+                y=y1,
+                width=101.0,
+                height=22.0
+            )
+            pan.append(entry_1)
         x1 += 109
 
 

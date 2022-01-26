@@ -4,9 +4,9 @@ from tkinter import *
 from tkinter import ttk
 from Results import *
 # from EnterValues1.build.EnterValues1 import *
+from weight_to_percent import *
 
-
-def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot):
+def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot,wp,pan):
     flag=True
     for i in range(len(entries)):
         if(len(entries[i].get())) == 0:
@@ -23,13 +23,16 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot):
     temp=0
     data=[]
     td=[]
-    for ent in entries:
-        td.append(float(ent.get()))
-        temp += 1
-        if(temp==numSieves):
-            temp=0
-            data.append(td)
-            td=[]
+    if(wp.get()=="Percentage"):
+        for ent in entries:
+            td.append(float(ent.get()))
+            temp += 1
+            if(temp==numSieves):
+                temp=0
+                data.append(td)
+                td=[]
+    else:
+        data=convert(entries,numSieves,pan)
 
 
     corData = []

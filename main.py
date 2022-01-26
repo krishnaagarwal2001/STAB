@@ -142,22 +142,7 @@ def main_window(root,mainroot):
         height=31.0
     )
 
-    button_image_2 = PhotoImage(
-        file="assets/reset_button.png")
-    button_2 = Button(
-        window,
-        image=button_image_2,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("HELL"),
-        relief="flat"
-    )
-    button_2.place(
-        x=548.0,
-        y=419.0,
-        width=108.0,
-        height=31.0
-    )
+
 
     canvas.create_rectangle(
         20.0,
