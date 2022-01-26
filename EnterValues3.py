@@ -136,13 +136,6 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot):
 
 
 
-    entry_image_1 = PhotoImage(
-        file=relative_to_assets("entry_1.png"))
-    entry_bg_1 = canvas.create_image(
-        197.5,
-        245.0,
-        image=entry_image_1
-    )
 
     button_image_1 = PhotoImage(
         file="assets/calculate_button.png")

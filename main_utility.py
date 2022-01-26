@@ -1,5 +1,5 @@
 from EnterValues3 import Enter_Values3
-from EnterValues4.build.EnterValues4 import Enter_Values4
+from EnterValues4 import Enter_Values4
 
 
 def main_utility(root,numSieves,numStocks,sievegrad,mainroot):

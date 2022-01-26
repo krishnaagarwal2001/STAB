@@ -9,7 +9,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from algo import *
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path("./assets")
+ASSETS_PATH = OUTPUT_PATH / Path("EnterValues4/build/assets")
 
 
 def relative_to_assets(path: str) -> Path:
@@ -101,15 +101,15 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot):
     )
 
     image_image_1 = PhotoImage(
-        file=relative_to_assets("image_1.png"))
+        file="assets/next_write.png")
     image_1 = canvas.create_image(
-        194.0,
-        108.0,
+        215.0,
+        107.0,
         image=image_image_1
     )
 
     image_image_2 = PhotoImage(
-        file=relative_to_assets("image_2.png"))
+        file="assets/IITR_Logo.png")
     image_2 = canvas.create_image(
         35.0,
         40.0,
@@ -117,7 +117,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot):
     )
 
     image_image_3 = PhotoImage(
-        file=relative_to_assets("image_3.png"))
+        file="assets/copyright.png")
     image_3 = canvas.create_image(
         1118.0,
         55.0,
@@ -132,49 +132,36 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot):
         fill="#F1F5FF",
         outline="")
 
-
-
-
-
-    entry_image_1 = PhotoImage(
-        file=relative_to_assets("entry_1.png"))
-    entry_bg_1 = canvas.create_image(
-        197.5,
-        245.0,
-        image=entry_image_1
-    )
-
-
     button_image_1 = PhotoImage(
-        file=relative_to_assets("button_1.png"))
+        file="assets/calculate_button.png")
+
     button_1 = Button(
         window,
-        text="Calculate",
+        image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        bg="#3888FF",
-        fg="#FFFFFF",
-        command=lambda: calculate(numStocks.get(),sievenum,entries,sieve_entries,window,mainroot) ,
+        command=lambda: calculate(numStocks.get(), sievenum, entries, sieve_entries, window, mainroot),
         relief="flat"
     )
     button_1.place(
-        x=1094.0,
+        x=1109.0,
         y=184.0,
         width=108.0,
         height=31.0
     )
 
     button_image_2 = PhotoImage(
-        file=relative_to_assets("button_2.png"))
+        file="assets/reset_button.png")
     button_2 = Button(
+        window,
         image=button_image_2,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_2 clicked"),
+        command=lambda: reset(entries, sieve_entries),
         relief="flat"
     )
     button_2.place(
-        x=1094.0,
+        x=1109.0,
         y=223.0,
         width=108.0,
         height=31.0
@@ -188,21 +175,45 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot):
         fill="#000000",
         outline="")
 
-    # button_image_3 = PhotoImage(
-    #     file=relative_to_assets("button_3.png"))
-    # button_3 = Button(
-    #     image=button_image_3,
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     command=lambda: print("button_3 clicked"),
-    #     relief="flat"
-    # )
-    # button_3.place(
-    #     x=20.0,
-    #     y=124.0,
-    #     width=28.0,
-    #     height=28.0
-    # )
+    button_image_3 = PhotoImage(
+        file="assets/back_button.png")
+    button_3 = Button(
+        window,
+        image=button_image_3,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: back_utl(root, window),
+        relief="flat"
+    )
+    button_3.place(
+        x=20.0,
+        y=124.0,
+        width=28.0,
+        height=28.0
+    )
+
+    canvas.create_rectangle(
+        63.0,
+        180.0,
+        1039.0,
+        687.0,
+        fill="#F1F5FF",
+        outline="")
+
+
+
+
+
+
+    canvas.create_rectangle(
+        20.0,
+        124.0,
+        48.0,
+        152.0,
+        fill="#000000",
+        outline="")
+
+
 
     ###Upper Lower Bound Blue box###
     canvas.create_rectangle(
@@ -516,43 +527,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot):
 
 
     #####Creating Entries#####
-    reset_button = Button(
-        window,
-        text="Reset",
-        borderwidth=0,
-        highlightthickness=0,
-        fg="#3888FF",
-        bg="#FFFFFF",
-        command=lambda: reset(entries, sieve_entries),
-        relief="flat"
-    )
-    reset_button.place(
-        x=1094.0,
-        y=223.0,
-        width=108.0,
-        height=31.0
-    )
 
-    #######BACK BUTTON#####
-
-    back_button_1 = Button(
-        window,
-        text="<--",
-        borderwidth=0,
-        highlightthickness=0,
-        bg="#3888FF",
-        fg="#FFFFFF",
-        command=lambda: back_utl(root, window),
-        relief="flat"
-    )
-    back_button_1.place(
-        x=20.0,
-        y=124.0,
-        width=28.0,
-        height=28.0
-    )
-
-    #######BACK BUTTON#####
 
     def on_closing():
         if messagebox.askokcancel("Quit", "Do you want to quit?"):
@@ -561,3 +536,4 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot):
     window.protocol("WM_DELETE_WINDOW", on_closing)
 
     window.resizable(False, False)
+    window.mainloop()
