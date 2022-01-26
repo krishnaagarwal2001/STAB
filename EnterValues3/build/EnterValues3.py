@@ -7,6 +7,7 @@ from pathlib import Path
 
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from algo import *
+from weightretained import *
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./assets")
@@ -23,7 +24,8 @@ def reset(entries,sieve_entries):
 
 
 
-def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot):
+def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
+    print(wp.get())
     root.withdraw()
     window = Toplevel(root)
     screen_width=window.winfo_screenwidth()
@@ -154,9 +156,11 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot):
         highlightthickness=0,
         bg="#3888FF",
         fg="#FFFFFF",
-        command=lambda: calculate(numStocks.get(),sievenum,entries,sieve_entries,window,mainroot) ,
+        command=lambda: result_utility(numStocks.get(),sievenum,entries,sieve_entries,window,mainroot,wp),
         relief="flat"
     )
+    # calculate(numStockPiles, numSieves, entries, sieve_entries, root, mainroot)
+    # result_utility(root, possibleSolutions, corData, numSieves, numStockPiles, entries, sieve_entries, mainroot, wp)
     button_1.place(
         x=1094.0,
         y=184.0,
