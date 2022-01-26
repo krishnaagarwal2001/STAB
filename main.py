@@ -111,19 +111,6 @@ def main_window(root,mainroot):
         fill="#F1F5FF",
         outline="")
 
-
-
-
-
-    entry_image_1 = PhotoImage(
-        file="assets/white_entry.png")
-    entry_bg_1 = canvas.create_image(
-        197.5,
-        245.0,
-        image=entry_image_1
-    )
-
-
     button_image_1 = PhotoImage(
         file="assets/calculate_button.png")
 
@@ -374,8 +361,8 @@ def main_window(root,mainroot):
     # style.configure("TRadiobutton",foreground="#283341", font=("OpenSansRoman Regular", 14 * -1))
 
     wp=StringVar(window,"Percentage")
-    Radiobutton(window, text="By Percentage (%)", variable=wp, value="Percentage",foreground="#283341",background="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=436,y=352)
-    Radiobutton(window, text="By Weight (g)", variable=wp, value="Weight",foreground="#283341",background="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=600, y=352)
+    Radiobutton(window, text="By Percentage (%)", variable=wp, value="Percentage", foreground="#283341", background="#F1F5FF",activebackground="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=436, y=352)
+    Radiobutton(window, text="By Weight (g)", variable=wp, value="Weight",foreground="#283341",background="#F1F5FF",activebackground="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=600, y=352)
 
 
     #####RADIO BUTTON#####
