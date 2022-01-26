@@ -7,8 +7,6 @@ from Results import *
 
 
 def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot):
-
-    print("###############################################################3")
     flag=True
     for i in range(len(entries)):
         if(len(entries[i].get())) == 0:
@@ -34,8 +32,6 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot):
             td=[]
 
 
-    print("data",data)
-
     corData = []
     temp=0
     td=[]
@@ -48,7 +44,6 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot):
             td = []
 
 
-    print("cordata",corData)
 
     filename=""
     if (int(numStockPiles) == 2):
@@ -98,9 +93,6 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot):
             for i in range(numSieves):
                 if(val[i]>corData[i][1] or val[i]<corData[i][0]):
                     flag=False
-
-            if(arr==[0,100,0]):
-                print("Present")
             if(flag==True):
                 numSolutions+=1
 
@@ -114,17 +106,10 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot):
 
     # print(type(possibleSolutions))
 
-    print(numSolutions)
     possibleSolutions=sorted(possibleSolutions,key=itemgetter('Error'))
-    print(len(possibleSolutions))
 
-    if numSolutions>0:
-        print("Best Solution")
-        print(possibleSolutions[0]['Solution'])
-    else:
-        print("No solution")
 
     b = datetime.datetime.now()
-    print(b-a)
+    print("Algo Time",b-a)
 
     result_fn(root, possibleSolutions, corData, numSieves, numStockPiles,entries,sieve_entries,mainroot)

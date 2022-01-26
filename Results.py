@@ -89,7 +89,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         1176.0,
         28.0,
         anchor="nw",
-        text="Version 2.3",
+        text="Version 2.0",
         fill="#FFFFFF",
         font=("Inter Medium", 12 * -1)
     )
@@ -125,13 +125,13 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         63.0,
         99.0,
         anchor="nw",
-        text="Define Stocks & Sieves",
+        text="Define StockPiles & Sieves",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
 
     canvas.create_text(
-        205.0,
+        227.0,
         99.0,
         anchor="nw",
         text="Enter Values",
@@ -147,6 +147,88 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         fill="#273340",
         font=("OpenSansRoman Regular", 16 * -1)
     )
+
+    image_image_1 = PhotoImage(
+        file="assets/next_write.png")
+    image_1 = canvas.create_image(
+        215.0,
+        107.0,
+        image=image_image_1
+    )
+
+    image_image_2 = PhotoImage(
+        file="assets/IITR_Logo.png")
+    image_2 = canvas.create_image(
+        35.0,
+        40.0,
+        image=image_image_2
+    )
+
+    image_image_3 = PhotoImage(
+        file="assets/copyright.png")
+    image_3 = canvas.create_image(
+        1118.0,
+        55.0,
+        image=image_image_3
+    )
+
+    image_4 = canvas.create_image(
+        301.0,
+        107.0,
+        image=image_image_1
+    )
+
+    button_image_1 = PhotoImage(
+        file="assets/back_button.png")
+    button_1 = Button(
+        window,
+        image=button_image_1,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: back_utl(root, window),
+        relief="flat"
+    )
+    button_1.place(
+        x=20.0,
+        y=124.0,
+        width=28.0,
+        height=28.0
+    )
+
+    if(len(possibleSolutions)>0):
+        button_image_2 = PhotoImage(
+            file="assets/Filter_Solution_Button.png")
+        button_2 = Button(
+            window,
+            image=button_image_2,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: fix(window,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries,mainroot),
+            relief="flat"
+        )
+        button_2.place(
+            x=183.0,
+            y=385+(numStockPiles-1)*37.0,
+            width=108.0,
+            height=31.0
+        )
+
+        button_image_3 = PhotoImage(
+            file="assets/save_report_button.png")
+        button_3 = Button(
+            window,
+            image=button_image_3,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: saveresults(possibleSolutions,numSieves,numStockPiles),
+            relief="flat"
+        )
+        button_3.place(
+            x=377.0,
+            y=172,
+            width=108.0,
+            height=31.0
+        )
 
     # Graph Canvas
     canvas.create_rectangle(
@@ -164,38 +246,6 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         text="1",
         fill="#273340",
         font=("Inter Regular", 16 * -1)
-    )
-
-    button_image_1 = PhotoImage(
-        file=relative_to_assets("button_1.png"))
-    button_1 = Button(
-        image=button_image_1,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_1 clicked"),
-        relief="flat"
-    )
-    button_1.place(
-        x=659.0,
-        y=675.0,
-        width=25.0,
-        height=25.0
-    )
-
-    button_image_2 = PhotoImage(
-        file=relative_to_assets("button_2.png"))
-    button_2 = Button(
-        image=button_image_2,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_2 clicked"),
-        relief="flat"
-    )
-    button_2.place(
-        x=596.0,
-        y=675.0,
-        width=25.0,
-        height=25.0
     )
 
     canvas.create_text(
@@ -255,37 +305,6 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         font=("OpenSansRoman Regular", 14 * -1)
     )
 
-    image_image_1 = PhotoImage(
-        file=relative_to_assets("image_1.png"))
-    image_1 = canvas.create_image(
-        194.0,
-        108.0,
-        image=image_image_1
-    )
-
-    image_image_2 = PhotoImage(
-        file=relative_to_assets("image_2.png"))
-    image_2 = canvas.create_image(
-        280.0,
-        108.0,
-        image=image_image_2
-    )
-
-    button_image_3 = PhotoImage(
-        file=relative_to_assets("button_3.png"))
-    button_3 = Button(
-        image=button_image_3,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_3 clicked"),
-        relief="flat"
-    )
-    button_3.place(
-        x=20.0,
-        y=124.0,
-        width=28.0,
-        height=28.0
-    )
 
     canvas.create_text(
         78.0,
@@ -357,21 +376,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         fill="#000000",
         outline="")
 
-    image_image_3 = PhotoImage(
-        file=relative_to_assets("image_3.png"))
-    image_3 = canvas.create_image(
-        35.0,
-        40.0,
-        image=image_image_3
-    )
 
-    image_image_4 = PhotoImage(
-        file=relative_to_assets("image_4.png"))
-    image_4 = canvas.create_image(
-        1118.0,
-        55.0,
-        image=image_image_4
-    )
 
     if (numsol > 0):
         x1 = 82
@@ -380,7 +385,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         x4=290
         y1 = 333
         y2=362
-        print(type(canvas))
+
         for i in range(0, numStockPiles):
             # print(x1,y1)
             canvas.create_rectangle(
@@ -483,65 +488,10 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
 
 ################################################################## GRAPH ##################################################################
 
-    if(len(possibleSolutions)>0):
-        button_1 = Button(
-            window,
-            text="Save Report",
-            borderwidth=0,
-            highlightthickness=0,
-            bg="#C5C9C7",
-            fg="#283341",
-            command=lambda:saveresults(possibleSolutions,numSieves,numStockPiles),
-            relief="flat",
-            font = ("OpenSansRoman Regular", 16 * -1,"bold")
-        )
-        button_1.place(
-            x=239.0,
-            y=683.0,
-            width=108.0,
-            height=31.0
-        )
-
-        button_2 = Button(
-            window,
-            text="Fix StockPiles",
-            borderwidth=0,
-            highlightthickness=0,
-            bg="#C5C9C7",
-            fg="#283341",
-            command=lambda: fix(window,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries,mainroot),
-            relief="flat",
-            font=("OpenSansRoman Regular", 16 * -1, "bold")
-        )
-        button_2.place(
-            x=439.0,
-            y=683.0,
-            width=108.0,
-            height=31.0
-        )
 
     b = datetime.datetime.now()
-    print(b-a)
+    print("Result Page Time",b-a)
 
-    ###################BACK BUTTON##############
-    back_button_1 = Button(
-        window,
-        text="<--",
-        borderwidth=0,
-        highlightthickness=0,
-        bg="#3888FF",
-        fg="#FFFFFF",
-        command=lambda: back_utl(root,window),
-        relief="flat"
-    )
-    back_button_1.place(
-        x=20.0,
-        y=124.0,
-        width=28.0,
-        height=28.0
-    )
-
-    ###################BACK BUTTON##############
 
     def on_closing():
         if messagebox.askokcancel("Quit", "Do you want to quit?"):
@@ -550,4 +500,5 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     window.protocol("WM_DELETE_WINDOW", on_closing)
 
     window.resizable(False, False)
+    window.mainloop()
 
