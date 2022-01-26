@@ -7,6 +7,7 @@ from pathlib import Path
 
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from algo import *
+from weightretained import result_utility
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("EnterValues4/build/assets")
@@ -23,7 +24,7 @@ def reset(entries,sieve_entries):
 
 
 
-def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot):
+def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
     root.withdraw()
     window = Toplevel(root)
     screen_width=window.winfo_screenwidth()
@@ -140,7 +141,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot):
         image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: calculate(numStocks.get(), sievenum, entries, sieve_entries, window, mainroot),
+        command=lambda: result_utility(numStocks.get(),sievenum,entries,sieve_entries,window,mainroot,wp),
         relief="flat"
     )
     button_1.place(

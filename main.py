@@ -132,7 +132,7 @@ def main_window(root,mainroot):
         image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: main_utility(window, numSieves, numStockPiles, sieveGrad, mainroot),
+        command=lambda: main_utility(window, numSieves, numStockPiles, sieveGrad, mainroot,wp),
         relief="flat"
     )
     button_1.place(
@@ -388,9 +388,9 @@ def main_window(root,mainroot):
     # style = ttk.Style(window)
     # style.configure("TRadiobutton",foreground="#283341", font=("OpenSansRoman Regular", 14 * -1))
 
-    valueType=StringVar(window,"Percentage")
-    Radiobutton(window, text="By Percentage (%)", variable=valueType, value="Percentage",foreground="#283341",background="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=436,y=352)
-    Radiobutton(window, text="By Weight (g)", variable=valueType, value="Weight",foreground="#283341",background="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=600, y=352)
+    wp=StringVar(window,"Percentage")
+    Radiobutton(window, text="By Percentage (%)", variable=wp, value="Percentage",foreground="#283341",background="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=436,y=352)
+    Radiobutton(window, text="By Weight (g)", variable=wp, value="Weight",foreground="#283341",background="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=600, y=352)
 
 
     #####RADIO BUTTON#####
