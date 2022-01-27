@@ -219,21 +219,21 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
     canvas.create_rectangle(
         132.0,
         190.0,
-        185.0,
+        233.0,
         219.0,
         fill="#C1D6FF",
         outline="")
     canvas.create_rectangle(
-        193.0,
+        241.0,
         190.0,
-        304.0,
+        342.0,
         219.0,
         fill="#C1D6FF",
         outline="")
     canvas.create_rectangle(
-        302.0,
+        350.0,
         190.0,
-        403.0,
+        458.0,
         219.0,
         fill="#C1D6FF",
         outline="")
@@ -252,7 +252,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
     )
 
     canvas.create_text(
-        201.0,
+        249.0,
         195.0,
         anchor="nw",
         text="Lower Bound",
@@ -261,7 +261,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
     )
 
     canvas.create_text(
-        310.0,
+        358.0,
         195.0,
         anchor="nw",
         text="Upper Bound",
@@ -313,7 +313,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
             highlightthickness=0
         )
         entry_1.place(
-            x=193.0,
+            x=241.0,
             y=y1,
             width=101.0,
             height=22.0
@@ -325,7 +325,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
             highlightthickness=0
         )
         entry_2.place(
-            x=302.0,
+            x=350.0,
             y=y1,
             width=101.0,
             height=22.0
@@ -338,9 +338,9 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
             highlightthickness=0
         )
         entry_3.place(
-            x=133.0,
+            x=132.0,
             y=y1,
-            width=52.0,
+            width=101.0,
             height=22.0
         )
         sieve_entries.append(entry_1)
@@ -531,7 +531,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
     #####Sieve labels#####
 
     #####Stock Labels#####
-    x1=423.0
+    x1=478.0
     # print(numStocks.get())
     for i in range(numStocks.get()):
         canvas.create_rectangle(
@@ -558,7 +558,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
 
     entries=[]
     pan=[]
-    x1 = 423
+    x1 = 478
     for i in range(numStocks.get()):
         y1 = 233
         for j in range(sievenum):

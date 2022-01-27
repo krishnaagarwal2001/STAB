@@ -103,6 +103,14 @@ def main_window(root,mainroot):
         image=image_image_3
     )
 
+    image_image_4 = PhotoImage(
+        file="assets/info_icon.png")
+    image_4 = canvas.create_image(
+        166.0,
+        254.0,
+        image=image_image_4
+    )
+
     canvas.create_rectangle(
         136.0,
         203.0,
