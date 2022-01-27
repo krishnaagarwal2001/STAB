@@ -37,7 +37,7 @@ def main_window(root,mainroot):
         63.0,
         121.0,
         anchor="nw",
-        text="Enter Values",
+        text="Define StockPiles and Sieves",
         fill="#3888FF",
         font=("Inter Medium", 28 * -1)
     )
