@@ -457,11 +457,8 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     x=[]
     for i in range(1,numSieves+1):
         x.append(i)
-
     fig = Figure(figsize=(6,3.8))
     plot1 = fig.add_subplot(111)
-    low_lim.reverse()
-    up_lim.reverse()
     plot1.scatter(x,low_lim)
     plot1.plot(x,low_lim,label="Lower Limit")
     plot1.scatter(x, up_lim)
@@ -475,10 +472,10 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         for i in range(0,numSieves):
             sol.append(possibleSolutions[0]['val'][i])
 
-        sol.reverse()
         plot1.scatter(x,sol)
         plot1.plot(x,sol,label="Solution")
 
+    plot1.invert_xaxis()
     # creating the Tkinter canvas
     # containing the Matplotlib figure
     plot1.legend(loc='upper center', bbox_to_anchor=(0.5, 1.15),

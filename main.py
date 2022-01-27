@@ -369,8 +369,8 @@ def main_window(root,mainroot):
     # style.configure("TRadiobutton",foreground="#283341", font=("OpenSansRoman Regular", 14 * -1))
 
     wp=StringVar(window,"Percentage")
-    Radiobutton(window, text="By Percentage (%)", variable=wp, value="Percentage", foreground="#283341", background="#F1F5FF",activebackground="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=436, y=352)
-    Radiobutton(window, text="By Weight (g)", variable=wp, value="Weight",foreground="#283341",background="#F1F5FF",activebackground="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=600, y=352)
+    Radiobutton(window, text="by Percentage (%)", variable=wp, value="Percentage", foreground="#283341", background="#F1F5FF",activebackground="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=436, y=352)
+    Radiobutton(window, text="by Weight (g)", variable=wp, value="Weight",foreground="#283341",background="#F1F5FF",activebackground="#F1F5FF", font=("OpenSansRoman Regular", 14 * -1)).place(x=600, y=352)
 
 
     #####RADIO BUTTON#####

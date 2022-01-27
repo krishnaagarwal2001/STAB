@@ -393,7 +393,6 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         y1 = 333
         y2=362
         fix_entries=[]
-        print(type(canvas))
         for i in range(0, numStockPiles):
             # print(x1,y1)
             canvas.create_rectangle(
@@ -434,7 +433,6 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
             fix_entries.append(entry_1)
 
     b = datetime.datetime.now()
-    print(b-a)
 
     def on_closing():
         if messagebox.askokcancel("Quit", "Do you want to quit?"):

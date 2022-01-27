@@ -410,14 +410,12 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
 
 
     if (numsol > 0):
-        print(possibleSolutions[0])
         x1 = 82
         x2 = 188
         x3=184
         x4=290
         y1 = 333
         y2=362
-        print(type(canvas))
         for i in range(0, numStockPiles):
             # print(x1,y1)
             canvas.create_rectangle(
@@ -464,47 +462,46 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
     # print(type(corData))
     # print(corData,len(corData),len(corData[0]))
 
-    low_lim=[]
-    for i in range(0,numSieves):
+    low_lim = []
+    for i in range(0, numSieves):
         low_lim.append(corData[i][0])
     up_lim = []
     for i in range(0, numSieves):
         up_lim.append(corData[i][1])
 
-    x=[]
-    for i in range(1,numSieves+1):
+    x = []
+    for i in range(1, numSieves + 1):
         x.append(i)
-
-    fig = Figure(figsize=(6,3.8))
+    fig = Figure(figsize=(6, 3.8))
     plot1 = fig.add_subplot(111)
-    low_lim.reverse()
-    up_lim.reverse()
-    plot1.scatter(x,low_lim)
-    plot1.plot(x,low_lim,label="Lower Limit")
+    plot1.scatter(x, low_lim)
+    plot1.plot(x, low_lim, label="Lower Limit")
     plot1.scatter(x, up_lim)
-    plot1.plot(x,up_lim,label="Upper Limit")
+    plot1.plot(x, up_lim, label="Upper Limit")
     plot1.set_xlabel("Sieve Number -------->")
     plot1.set_ylabel("Percentage Passing (%)  -------->")
 
     if (numsol > 0):
         sol = []
 
-        for i in range(0,numSieves):
+        for i in range(0, numSieves):
             sol.append(possibleSolutions[0]['val'][i])
-        sol.reverse()
-        plot1.scatter(x,sol)
-        plot1.plot(x,sol,label="Possible Solution")
 
+        plot1.scatter(x, sol)
+        plot1.plot(x, sol, label="Solution")
+
+    plot1.invert_xaxis()
     # creating the Tkinter canvas
     # containing the Matplotlib figure
     plot1.legend(loc='upper center', bbox_to_anchor=(0.5, 1.15),
-              fancybox=True, shadow=True, ncol=3)
+                 fancybox=True, shadow=True, ncol=3)
+
     canvas = FigureCanvasTkAgg(fig,
                                master=window)
     canvas.draw()
 
     # placing the canvas on the Tkinter window
-    canvas.get_tk_widget().place(x=342,y=291)
+    canvas.get_tk_widget().place(x=342, y=291)
 
     # bar1.get_tk_widget().pack(side=tk.LEFT, fill=tk.BOTH)
 
@@ -519,7 +516,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
     #     button.config(background="#FFFFFF",foreground="#FFFFFF")
 
     # placing the toolbar on the Tkinter window
-    canvas.get_tk_widget().place(x=342,y=291)
+    canvas.get_tk_widget().place(x=342, y=291)
 
 ################################################################## GRAPH ##################################################################
 
@@ -528,14 +525,12 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
 
 
     b = datetime.datetime.now()
-    print(b-a)
 
 
     #####HERE#####
 
     def on_closing():
         if messagebox.askokcancel("Quit", "Do you want to quit?"):
-            print(mainloop)
             mainroot.destroy()
 
     window.protocol("WM_DELETE_WINDOW", on_closing)
