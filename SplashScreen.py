@@ -343,7 +343,7 @@ def splash():
         678.0,
         574.0,
         anchor="nw",
-        text="Krishna Agarwal",
+        text="Anurag Yadav",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1)
     )
@@ -359,7 +359,7 @@ def splash():
         678.0,
         604.0,
         anchor="nw",
-        text="Sanskar Gahoi",
+        text="Krishna Agarwal",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1)
     )
@@ -375,7 +375,7 @@ def splash():
         678.0,
         634.0,
         anchor="nw",
-        text="Shubhank",
+        text="Sanskar Gahoi",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1)
     )
@@ -390,7 +390,7 @@ def splash():
         678.0,
         664.0,
         anchor="nw",
-        text="Anurag Yadav",
+        text="Shubhank",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1)
     )
