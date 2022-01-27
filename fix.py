@@ -71,7 +71,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         63.0,
         121.0,
         anchor="nw",
-        text="Result",
+        text="Fix StockPile(s)",
         fill="#3888FF",
         font=("Inter Medium", 28 * -1)
     )

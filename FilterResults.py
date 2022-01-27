@@ -70,7 +70,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         63.0,
         121.0,
         anchor="nw",
-        text="Filter Result",
+        text="Filtered Result",
         fill="#3888FF",
         font=("Inter Medium", 28 * -1)
     )
