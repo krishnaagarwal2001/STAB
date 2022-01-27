@@ -24,6 +24,8 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+def Reverse(lst):
+    return [ele for ele in reversed(lst)]
 
 def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries,mainroot):
     a = datetime.datetime.now()
@@ -80,7 +82,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         70.0,
         23.0,
         anchor="nw",
-        text="STAB Calculator",
+        text="STAB",
         fill="#FFFFFF",
         font=("Inter Bold", 28 * -1)
     )
@@ -125,7 +127,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         63.0,
         99.0,
         anchor="nw",
-        text="Define StockPiles & Sieves",
+        text="Define stockpiles & sieves",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -134,7 +136,16 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         227.0,
         99.0,
         anchor="nw",
-        text="Enter Values",
+        text="Enter values",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 12 * -1)
+    )
+
+    canvas.create_text(
+        313.0,
+        99.0,
+        anchor="nw",
+        text="Result",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -174,6 +185,12 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
 
     image_4 = canvas.create_image(
         301.0,
+        107.0,
+        image=image_image_1
+    )
+
+    image_5 = canvas.create_image(
+        357.0,
         107.0,
         image=image_image_1
     )
@@ -287,20 +304,20 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
 
 
     canvas.create_text(
-        90.0,
+        87.0,
         301.0,
         anchor="nw",
-        text="Stock",
+        text="Stockpiles",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1),
         width=325.0,
     )
 
     canvas.create_text(
-        196.0,
+        193.0,
         301.0,
         anchor="nw",
-        text="Percentage",
+        text="Percentage(%)",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1)
     )
@@ -310,7 +327,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         78.0,
         175.0,
         anchor="nw",
-        text="No. of Possible Solutions:",
+        text="No. of possible solutions:",
         fill="#273340",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -337,7 +354,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
             300.0,
             173.0,
             anchor="nw",
-            text="No Solution Possible",
+            text="No solution possible",
             fill="#FF5A5A",
             font=("OpenSansRoman SemiBold", 20 * -1)
         )
@@ -347,7 +364,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         78.0,
         212.0,
         anchor="nw",
-        text="Best Solution",
+        text="Best solution",
         fill="#273340",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -401,7 +418,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
                 x1 + 8,
                 y1 + 6,
                 anchor="nw",
-                text="Stock " + str(i + 1),
+                text="Stockpile " + str(i + 1),
                 fill="#283341",
                 font=("OpenSansRoman Regular", 14 * -1),
                 width=325.0,
@@ -422,7 +439,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
                 anchor="nw",
                 text=possibleSolutions[0]['Solution'][i],
                 fill="#283341",
-                font=("OpenSansRoman Regular", 14 * -1),
+                font=("OpenSans Roman Regular", 14 * -1),
                 width=325.0,
             )
             y1 += 37
@@ -443,27 +460,35 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     for i in range(1,numSieves+1):
         x.append(i)
 
-    fig = Figure(figsize=(5,3))
+    fig = Figure(figsize=(6,3.5))
     plot1 = fig.add_subplot(111)
     # plot1.xlabel("Sieve Number")
     # plot1.ylabel("Percentage")
     # plotting the graph
+    Reverse(low_lim)
+    Reverse(up_lim)
     plot1.scatter(x,low_lim)
     plot1.plot(x,low_lim,label="Lower Limit")
     plot1.scatter(x, up_lim)
     plot1.plot(x,up_lim,label="Upper Limit")
+    plot1.set_xlabel("Sieve Number -------->")
+    plot1.set_ylabel("Percentage Passing (%)  -------->")
 
     if (numsol > 0):
         sol = []
 
         for i in range(0,numSieves):
             sol.append(possibleSolutions[0]['val'][i])
+
+        Reverse(sol)
         plot1.scatter(x,sol)
-        plot1.plot(x,sol,label="Possible Solution")
+        plot1.plot(x,sol,label="Solution")
 
     # creating the Tkinter canvas
     # containing the Matplotlib figure
-    plot1.legend()
+    plot1.legend(loc='upper center', bbox_to_anchor=(0.5, 1.15),
+              fancybox=True, shadow=True, ncol=3)
+
     canvas = FigureCanvasTkAgg(fig,
                                master=window)
     canvas.draw()

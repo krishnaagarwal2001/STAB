@@ -62,7 +62,7 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
         70.0,
         23.0,
         anchor="nw",
-        text="STAB Calculator",
+        text="STAB",
         fill="#FFFFFF",
         font=("Inter Bold", 28 * -1)
     )
@@ -89,7 +89,16 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
         63.0,
         99.0,
         anchor="nw",
-        text="Define StockPiles & Sieves",
+        text="Define stockpiles & sieves",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 12 * -1)
+    )
+
+    canvas.create_text(
+        227.0,
+        99.0,
+        anchor="nw",
+        text="Enter values",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -116,6 +125,12 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
         1118.0,
         55.0,
         image=image_image_3
+    )
+
+    image_4 = canvas.create_image(
+        301.0,
+        107.0,
+        image=image_image_1
     )
 
     canvas.create_rectangle(
@@ -505,7 +520,7 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
             x1+8,
             195.0,
             anchor="nw",
-            text="StockPile "+str(i+1),
+            text="Stockpile "+str(i+1),
             fill="#273340",
             font=("OpenSansRoman SemiBold", 12 * -1)
         )

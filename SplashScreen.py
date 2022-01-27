@@ -82,7 +82,7 @@ def splash():
         70.0,
         23.0,
         anchor="nw",
-        text="STAB Calculator",
+        text="STAB",
         fill="#FFFFFF",
         font=("Inter Bold", 28 * -1)
     )
@@ -133,7 +133,7 @@ def splash():
         693.0,
         217.0,
         anchor="nw",
-        text="Define StockPiles & Sieves.",
+        text="Define stockpiles & sieves.",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -142,7 +142,7 @@ def splash():
         674.0,
         190.0,
         anchor="nw",
-        text="Get Solutions in 3 easy steps:",
+        text="Get solutions in 3 easy steps:",
         fill="#273340",
         font=("OpenSansRoman Bold", 14 * -1)
     )
@@ -151,7 +151,7 @@ def splash():
         693.0,
         241.0,
         anchor="nw",
-        text="Enter Sieve parameters & corresponding Stock Values.",
+        text="Enter sieve parameters & corresponding stockpile values.",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -275,7 +275,7 @@ def splash():
         798.0,
         353.0,
         anchor="nw",
-        text="Get Lower & Upper Bounds",
+        text="Get lower & upper bounds",
         fill="#273340",
         font=("OpenSansRoman Regular", 10 * -1)
     )

@@ -37,7 +37,7 @@ def main_window(root,mainroot):
         63.0,
         121.0,
         anchor="nw",
-        text="Define StockPiles and Sieves",
+        text="Define Stockpiles and Sieves",
         fill="#3888FF",
         font=("Inter Medium", 28 * -1)
     )
@@ -46,7 +46,7 @@ def main_window(root,mainroot):
         70.0,
         23.0,
         anchor="nw",
-        text="STAB Calculator",
+        text="STAB",
         fill="#FFFFFF",
         font=("Inter Bold", 28 * -1)
     )
@@ -73,7 +73,7 @@ def main_window(root,mainroot):
         63.0,
         99.0,
         anchor="nw",
-        text="Define StockPiles & Sieves",
+        text="Define stockpiles & sieves",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -179,7 +179,7 @@ def main_window(root,mainroot):
         160.0,
         283.0,
         anchor="nw",
-        text="No. of StockPiles",
+        text="No. of Stockpiles",
         fill="#283341",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -197,7 +197,7 @@ def main_window(root,mainroot):
         160.0,
         353.0,
         anchor="nw",
-        text="Enter value of Sieve by",
+        text="Enter Value of Sieves",
         fill="#283341",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -257,7 +257,7 @@ def main_window(root,mainroot):
     )
 
     name=["BC","SMA","DBM","PQC","DLC","WMM",]
-    ff=["Bituminous Concrete Pavement Layers","Stone Matrix Asphalt","Dense Graded Bituminous Macadam","Pavement Quality Concrete","Dense Layer Concrete","Wet Mix Macadam"]
+    ff=["Bituminous Concrete","Stone Matrix Asphalt","Dense Bituminous Macadam","Pavement Quality Concrete","Dry Lean Concrete","Wet Mix Macadam"]
 
     y1=238
     for i in range(6):

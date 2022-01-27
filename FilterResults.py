@@ -79,7 +79,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         70.0,
         23.0,
         anchor="nw",
-        text="STAB Calculator",
+        text="STAB",
         fill="#FFFFFF",
         font=("Inter Bold", 28 * -1)
     )
@@ -124,7 +124,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         63.0,
         99.0,
         anchor="nw",
-        text="Define Stocks & Sieves",
+        text="Define stockpiles & sieves",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -133,7 +133,34 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         227.0,
         99.0,
         anchor="nw",
-        text="Enter Values",
+        text="Enter values",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 12 * -1)
+    )
+
+    canvas.create_text(
+        313.0,
+        99.0,
+        anchor="nw",
+        text="Result",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 12 * -1)
+    )
+
+    canvas.create_text(
+        369.0,
+        99.0,
+        anchor="nw",
+        text="Fix stockpiles",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 12 * -1)
+    )
+
+    canvas.create_text(
+        461.0,
+        99.0,
+        anchor="nw",
+        text="Filtered result",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -176,6 +203,26 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         107.0,
         image=image_image_1
     )
+
+    image_5 = canvas.create_image(
+        357.0,
+        107.0,
+        image=image_image_1
+    )
+
+    image_7 = canvas.create_image(
+        449.0,
+        107.0,
+        image=image_image_1
+    )
+
+    image_8 = canvas.create_image(
+        543.0,
+        107.0,
+        image=image_image_1
+    )
+
+
 
     button_image_1 = PhotoImage(
         file="assets/back_button.png")
@@ -270,20 +317,20 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
 
 
     canvas.create_text(
-        90.0,
+        87.0,
         301.0,
         anchor="nw",
-        text="Stock",
+        text="Stockpiles",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1),
         width=325.0,
     )
 
     canvas.create_text(
-        196.0,
+        193.0,
         301.0,
         anchor="nw",
-        text="Percentage",
+        text="Percentage(%)",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1)
     )
@@ -294,7 +341,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         78.0,
         175.0,
         anchor="nw",
-        text="No. of Possible Solutions:",
+        text="No. of possible solutions:",
         fill="#273340",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -331,7 +378,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         78.0,
         212.0,
         anchor="nw",
-        text="Best Solution",
+        text="Best solution",
         fill="#273340",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -386,7 +433,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
                 x1 + 8,
                 y1 + 6,
                 anchor="nw",
-                text="Stock " + str(i + 1),
+                text="Stockpile " + str(i + 1),
                 fill="#283341",
                 font=("OpenSansRoman Regular", 14 * -1),
                 width=325.0,
@@ -428,7 +475,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
     for i in range(1,numSieves+1):
         x.append(i)
 
-    fig = Figure(figsize=(5,3))
+    fig = Figure(figsize=(5,3.5))
     plot1 = fig.add_subplot(111)
     # plot1.xlabel("Sieve Number")
     # plot1.ylabel("Percentage")
@@ -437,6 +484,8 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
     plot1.plot(x,low_lim,label="Lower Limit")
     plot1.scatter(x, up_lim)
     plot1.plot(x,up_lim,label="Upper Limit")
+    plot1.set_xlabel("Sieve Number -------->")
+    plot1.set_ylabel("Percentage Passing (%)  -------->")
 
     if (numsol > 0):
         sol = []
@@ -448,7 +497,8 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
 
     # creating the Tkinter canvas
     # containing the Matplotlib figure
-    plot1.legend()
+    plot1.legend(loc='upper center', bbox_to_anchor=(0.5, 1.15),
+              fancybox=True, shadow=True, ncol=3)
     canvas = FigureCanvasTkAgg(fig,
                                master=window)
     canvas.draw()

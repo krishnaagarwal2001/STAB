@@ -71,7 +71,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         63.0,
         121.0,
         anchor="nw",
-        text="Fix StockPile(s)",
+        text="Fix Stockpile(s)",
         fill="#3888FF",
         font=("Inter Medium", 28 * -1)
     )
@@ -80,7 +80,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         70.0,
         23.0,
         anchor="nw",
-        text="STAB Calculator",
+        text="STAB",
         fill="#FFFFFF",
         font=("Inter Bold", 28 * -1)
     )
@@ -125,7 +125,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         63.0,
         99.0,
         anchor="nw",
-        text="Define StockPiles & Sieves",
+        text="Define stockpiles & sieves",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -134,7 +134,25 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         227.0,
         99.0,
         anchor="nw",
-        text="Enter Values",
+        text="Enter values",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 12 * -1)
+    )
+
+    canvas.create_text(
+        313.0,
+        99.0,
+        anchor="nw",
+        text="Result",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 12 * -1)
+    )
+
+    canvas.create_text(
+        369.0,
+        99.0,
+        anchor="nw",
+        text="Fix stockpiles",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -157,14 +175,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         fill="#FFFFFF",
         outline="")
 
-    canvas.create_text(
-        636.0,
-        678.0,
-        anchor="nw",
-        text="1",
-        fill="#273340",
-        font=("Inter Regular", 16 * -1)
-    )
+
 
     image_image_1 = PhotoImage(
         file="assets/next_write.png")
@@ -196,6 +207,18 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         image=image_image_1
     )
 
+    image_5 = canvas.create_image(
+        357.0,
+        107.0,
+        image=image_image_1
+    )
+
+
+    image_7 = canvas.create_image(
+        449.0,
+        107.0,
+        image=image_image_1
+    )
     button_image_1 = PhotoImage(
         file="assets/back_button.png")
     button_1 = Button(
@@ -269,20 +292,20 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
 
 
     canvas.create_text(
-        90.0,
+        87.0,
         301.0,
         anchor="nw",
-        text="Stock",
+        text="Stockpiles",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1),
         width=325.0,
     )
 
     canvas.create_text(
-        196.0,
+        193.0,
         301.0,
         anchor="nw",
-        text="Percentage",
+        text="Percentage(%)",
         fill="#273340",
         font=("OpenSansRoman Regular", 14 * -1)
     )
@@ -294,7 +317,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         78.0,
         175.0,
         anchor="nw",
-        text="No. of Possible Solutions:",
+        text="No. of possible solutions:",
         fill="#273340",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -321,7 +344,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
             300.0,
             173.0,
             anchor="nw",
-            text="No Solution Possible",
+            text="No solution possible",
             fill="#FF5A5A",
             font=("OpenSansRoman SemiBold", 20 * -1)
         )
@@ -331,7 +354,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
         78.0,
         212.0,
         anchor="nw",
-        text="Best Solution",
+        text="Best solution",
         fill="#273340",
         font=("OpenSansRoman Regular", 18 * -1)
     )
@@ -386,7 +409,7 @@ def fix(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_ent
                 x1 + 8,
                 y1 + 6,
                 anchor="nw",
-                text="Stock " + str(i + 1),
+                text="Stockpile " + str(i + 1),
                 fill="#283341",
                 font=("OpenSansRoman Regular", 14 * -1),
                 width=325.0,
