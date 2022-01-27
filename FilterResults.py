@@ -475,11 +475,10 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
     for i in range(1,numSieves+1):
         x.append(i)
 
-    fig = Figure(figsize=(5,3.5))
+    fig = Figure(figsize=(6,3.8))
     plot1 = fig.add_subplot(111)
-    # plot1.xlabel("Sieve Number")
-    # plot1.ylabel("Percentage")
-    # plotting the graph
+    low_lim.reverse()
+    up_lim.reverse()
     plot1.scatter(x,low_lim)
     plot1.plot(x,low_lim,label="Lower Limit")
     plot1.scatter(x, up_lim)
@@ -492,6 +491,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
 
         for i in range(0,numSieves):
             sol.append(possibleSolutions[0]['val'][i])
+        sol.reverse()
         plot1.scatter(x,sol)
         plot1.plot(x,sol,label="Possible Solution")
 

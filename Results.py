@@ -24,8 +24,6 @@ ASSETS_PATH = OUTPUT_PATH / Path("./assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def Reverse(lst):
-    return [ele for ele in reversed(lst)]
 
 def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sieve_entries,mainroot):
     a = datetime.datetime.now()
@@ -460,13 +458,10 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     for i in range(1,numSieves+1):
         x.append(i)
 
-    fig = Figure(figsize=(6,3.5))
+    fig = Figure(figsize=(6,3.8))
     plot1 = fig.add_subplot(111)
-    # plot1.xlabel("Sieve Number")
-    # plot1.ylabel("Percentage")
-    # plotting the graph
-    Reverse(low_lim)
-    Reverse(up_lim)
+    low_lim.reverse()
+    up_lim.reverse()
     plot1.scatter(x,low_lim)
     plot1.plot(x,low_lim,label="Lower Limit")
     plot1.scatter(x, up_lim)
@@ -480,7 +475,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         for i in range(0,numSieves):
             sol.append(possibleSolutions[0]['val'][i])
 
-        Reverse(sol)
+        sol.reverse()
         plot1.scatter(x,sol)
         plot1.plot(x,sol,label="Solution")
 
