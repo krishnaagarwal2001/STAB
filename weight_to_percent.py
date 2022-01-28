@@ -22,7 +22,7 @@ def convert(entries,numSieves,pan):
                 # print("temp_sum",temp_sum)
                 # print("sum",sum)
                 # print("value",float(temp_sum * 100) / float(sum))
-                td.append(float(temp_sum * 100) / float(sum))
+                td.append(round(float(temp_sum * 100) / float(sum),6))
                 j+=1
             # print(td)
             data.append(td)
