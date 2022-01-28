@@ -183,32 +183,6 @@ def wt_percent2(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroo
         fill="#000000",
         outline="")
 
-
-
-    ###Upper Lower Bound Blue box###
-    canvas.create_rectangle(
-        132.0,
-        190.0,
-        233.0,
-        219.0,
-        fill="#C1D6FF",
-        outline="")
-    canvas.create_rectangle(
-        241.0,
-        190.0,
-        342.0,
-        219.0,
-        fill="#C1D6FF",
-        outline="")
-    canvas.create_rectangle(
-        350.0,
-        190.0,
-        458.0,
-        219.0,
-        fill="#C1D6FF",
-        outline="")
-    ###Upper Lower Bound Blue box###
-
     ###Upper Lower Bound Blue box###
     canvas.create_rectangle(
         147.0,
@@ -226,7 +200,24 @@ def wt_percent2(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroo
         outline="")
     ###Upper Lower Bound Blue box###
 
-    
+    ######Upper Lower Bound######
+    canvas.create_text(
+        155.0,
+        195.0,
+        anchor="nw",
+        text="Lower Bound",
+        fill="#273340",
+        font=("OpenSansRoman SemiBold", 12 * -1)
+    )
+
+    canvas.create_text(
+        264.0,
+        195.0,
+        anchor="nw",
+        text="Upper Bound",
+        fill="#273340",
+        font=("OpenSansRoman SemiBold", 12 * -1)
+    )
 
     #####SIEVE ENTRIES####
     sievenum=numSieves.get()
@@ -271,7 +262,7 @@ def wt_percent2(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroo
             highlightthickness=0
         )
         entry_1.place(
-            x=241.0,
+            x=147.0,
             y=y1,
             width=101.0,
             height=22.0
@@ -286,7 +277,7 @@ def wt_percent2(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroo
             highlightthickness=0
         )
         entry_2.place(
-            x=350.0,
+            x=256.0,
             y=y1,
             width=101.0,
             height=22.0
@@ -295,19 +286,6 @@ def wt_percent2(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroo
         entry_2.insert(0, sieve_entries[temp].get())
         entry_2.configure(state="disabled")
         temp += 1
-        entry_3 = Entry(
-            window,
-            bd=0,
-            bg="#FFFFFF",
-            highlightthickness=0
-        )
-        entry_3.place(
-            x=132.0,
-            y=y1,
-            width=101.0,
-            height=22.0
-        )
-        sieve_size.append(entry_3)
         y1+=30
 
     array=[]
