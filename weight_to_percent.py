@@ -5,11 +5,8 @@ def convert(entries,numSieves,pan):
     sum = 0
     data=[]
     p_idx=0
-    # print(len(entries))
-    # print(numSieves.get())
-    # print(len(pan))
+
     for i in range(len(entries)):
-        # print("i",i)
         sum += float(entries[i].get())
         temp += 1
         if (temp == numSieves):
@@ -19,12 +16,8 @@ def convert(entries,numSieves,pan):
             temp_sum = sum
             for k in range(numSieves):
                 temp_sum -= float(entries[j].get())
-                # print("temp_sum",temp_sum)
-                # print("sum",sum)
-                # print("value",float(temp_sum * 100) / float(sum))
                 td.append(round(float(temp_sum * 100) / float(sum),6))
                 j+=1
-            # print(td)
             data.append(td)
             sum = 0
             temp=0

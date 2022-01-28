@@ -96,6 +96,7 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot,wp,pan
             for i in range(numSieves):
                 if(val[i]>corData[i][1] or val[i]<corData[i][0]):
                     flag=False
+
             if(flag==True):
                 numSolutions+=1
 
@@ -105,9 +106,6 @@ def calculate(numStockPiles,numSieves,entries,sieve_entries,root,mainroot,wp,pan
                     # print(error)
                 currentSolution={"Solution": arr,"Error":error,"val":val}
                 possibleSolutions.append(currentSolution)
-
-
-    # print(type(possibleSolutions))
 
     possibleSolutions=sorted(possibleSolutions,key=itemgetter('Error'))
 

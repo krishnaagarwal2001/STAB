@@ -226,65 +226,6 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
         height=28.0
     )
 
-    # button_image_1 = PhotoImage(
-    #     file=relative_to_assets("button_1.png"))
-    # button_1 = Button(
-    #     window,
-    #     text="Calculate",
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     bg="#3888FF",
-    #     fg="#FFFFFF",
-    #     command=lambda: calculate(numStocks.get(),sievenum,entries,sieve_entries,window,mainroot) ,
-    #     relief="flat"
-    # )
-    # button_1.place(
-    #     x=1094.0,
-    #     y=184.0,
-    #     width=108.0,
-    #     height=31.0
-    # )
-    #
-    # button_image_2 = PhotoImage(
-    #     file=relative_to_assets("button_2.png"))
-    # button_2 = Button(
-    #     image=button_image_2,
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     command=lambda: print("button_2 clicked"),
-    #     relief="flat"
-    # )
-    # button_2.place(
-    #     x=1094.0,
-    #     y=223.0,
-    #     width=108.0,
-    #     height=31.0
-    # )
-    #
-    # canvas.create_rectangle(
-    #     20.0,
-    #     124.0,
-    #     48.0,
-    #     152.0,
-    #     fill="#000000",
-    #     outline="")
-    #
-    # # button_image_3 = PhotoImage(
-    # #     file=relative_to_assets("button_3.png"))
-    # # button_3 = Button(
-    # #     image=button_image_3,
-    # #     borderwidth=0,
-    # #     highlightthickness=0,
-    # #     command=lambda: print("button_3 clicked"),
-    # #     relief="flat"
-    # # )
-    # # button_3.place(
-    # #     x=20.0,
-    # #     y=124.0,
-    # #     width=28.0,
-    # #     height=28.0
-    # # )
-
     ###Upper Lower Bound Blue box###
     canvas.create_rectangle(
         147.0,
@@ -487,14 +428,6 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
         for i in range(len(sieve_entries)):
             sieve_entries[i].insert(0,array[i])
             sieve_entries[i].configure(state="disabled")
-
-
-
-
-
-
-
-
 
     #####SIEVE ENTRIES####
 

@@ -104,7 +104,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     )
 
     canvas.create_text(
-        989.0,
+        969.0,
         263.0,
         anchor="nw",
         text="Note:",
@@ -266,7 +266,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     image_image_10 = PhotoImage(
         file="assets/note1.png")
     image_10 = canvas.create_image(
-        1100.0,
+        1080.0,
         361.0,
         image=image_image_10
     )
@@ -274,7 +274,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     image_image_11 = PhotoImage(
         file="assets/note2.png")
     image_11 = canvas.create_image(
-        1075.0,
+        1055.0,
         461.0,
         image=image_image_11
     )
@@ -282,28 +282,10 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
     image_image_12 = PhotoImage(
         file="assets/note3.png")
     image_12 = canvas.create_image(
-        1105.0,
+        1085.0,
         561.0,
         image=image_image_12
     )
-
-    # canvas.create_text(
-    #     1001.0,
-    #     296.0,
-    #     anchor="nw",
-    #     text="Please use percentage values",
-    #     fill="#273340",
-    #     font=("OpenSansRoman Regular", 14 * -1)
-    # )
-    #
-    # canvas.create_text(
-    #     1001.0,
-    #     323.0,
-    #     anchor="nw",
-    #     text="Graph is to scale of such.",
-    #     fill="#273340",
-    #     font=("OpenSansRoman Regular", 14 * -1)
-    # )
 
     canvas.create_rectangle(
         82.0,
@@ -313,8 +295,6 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         fill="#C1D6FF",
         outline="")
 
-
-
     canvas.create_rectangle(
         188.0,
         296.0,
@@ -322,8 +302,6 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         325.0,
         fill="#C1D6FF",
         outline="")
-
-
 
     canvas.create_text(
         87.0,
@@ -398,23 +376,6 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         228.0,
         fill="#000000",
         outline="")
-
-    # canvas.create_rectangle(
-    #     991.0,
-    #     304.0,
-    #     995.0,
-    #     308.0,
-    #     fill="#000000",
-    #     outline="")
-    #
-    # canvas.create_rectangle(
-    #     991.0,
-    #     331.0,
-    #     995.0,
-    #     335.0,
-    #     fill="#000000",
-    #     outline="")
-
 
 
     if (numsol > 0):
@@ -519,12 +480,6 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
                                    window)
     toolbar.update()
 
-    # toolbar.config(background="#3888FF")
-    #
-    # for button in toolbar.winfo_children():
-    #     button.config(background="#FFFFFF",foreground="#FFFFFF")
-
-    # placing the toolbar on the Tkinter window
     canvas.get_tk_widget().place(x=342,y=291)
 
 ################################################################## GRAPH ##################################################################

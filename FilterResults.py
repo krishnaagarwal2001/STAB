@@ -368,24 +368,6 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         fill="#000000",
         outline="")
 
-    # canvas.create_rectangle(
-    #     991.0,
-    #     304.0,
-    #     995.0,
-    #     308.0,
-    #     fill="#000000",
-    #     outline="")
-    #
-    # canvas.create_rectangle(
-    #     991.0,
-    #     331.0,
-    #     995.0,
-    #     335.0,
-    #     fill="#000000",
-    #     outline="")
-
-
-
     if (numsol > 0):
         x1 = 82
         x2 = 188
@@ -436,8 +418,6 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
             y2+=37
 
 ################################################################## GRAPH ##################################################################
-    # print(type(corData))
-    # print(corData,len(corData),len(corData[0]))
 
     low_lim = []
     for i in range(0, numSieves):
@@ -496,10 +476,6 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
     canvas.get_tk_widget().place(x=342, y=291)
 
 ################################################################## GRAPH ##################################################################
-
-
-
-
 
     b = datetime.datetime.now()
 

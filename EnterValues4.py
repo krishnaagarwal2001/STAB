@@ -231,11 +231,6 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
         fill="#F1F5FF",
         outline="")
 
-
-
-
-
-
     canvas.create_rectangle(
         20.0,
         124.0,
