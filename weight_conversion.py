@@ -46,7 +46,7 @@ def wt_percent(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroot
         63.0,
         121.0,
         anchor="nw",
-        text="Enter Values",
+        text="Percent Passing",
         fill="#3888FF",
         font=("Inter Medium", 28 * -1)
     )
@@ -55,7 +55,7 @@ def wt_percent(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroot
         70.0,
         23.0,
         anchor="nw",
-        text="STAB Calculator",
+        text="STAB",
         fill="#FFFFFF",
         font=("Inter Bold", 28 * -1)
     )
@@ -64,7 +64,7 @@ def wt_percent(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroot
         1176.0,
         28.0,
         anchor="nw",
-        text="Version 2.3",
+        text="Version 2.0",
         fill="#FFFFFF",
         font=("Inter Medium", 12 * -1)
     )
@@ -82,7 +82,16 @@ def wt_percent(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroot
         63.0,
         99.0,
         anchor="nw",
-        text="Define StockPiles & Sieves",
+        text="Define stockpiles & sieves",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 12 * -1)
+    )
+
+    canvas.create_text(
+        227.0,
+        99.0,
+        anchor="nw",
+        text="Enter values",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
@@ -109,6 +118,12 @@ def wt_percent(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroot
         1118.0,
         55.0,
         image=image_image_3
+    )
+
+    image_4 = canvas.create_image(
+        301.0,
+        107.0,
+        image=image_image_1
     )
 
     canvas.create_rectangle(
