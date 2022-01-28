@@ -245,17 +245,26 @@ def splash():
         font=("OpenSansRoman Regular", 14 * -1)
     )
 
+    canvas.create_text(
+        678.0,
+        548.0,
+        anchor="nw",
+        text="Faculty, Civil Engg. Dept., IIT Roorkee",
+        fill="#273340",
+        font=("OpenSansRoman Regular", 10 * -1)
+    )
+
     canvas.create_rectangle(
         670.0,
-        580.0,
+        590.0,
         674.0,
-        584.0,
+        594.0,
         fill="#283341",
         outline="")
 
     canvas.create_text(
         678.0,
-        574.0,
+        584.0,
         anchor="nw",
         text="Anurag Yadav",
         fill="#273340",
@@ -280,14 +289,14 @@ def splash():
 
     canvas.create_rectangle(
         670.0,
-        640.0,
+        630.0,
         674.0,
-        644.0,
+        634.0,
         fill="#283341",
         outline="")
     canvas.create_text(
         678.0,
-        634.0,
+        624.0,
         anchor="nw",
         text="Sanskar Gahoi",
         fill="#273340",
@@ -295,14 +304,14 @@ def splash():
     )
     canvas.create_rectangle(
         670.0,
-        670.0,
+        650.0,
         674.0,
-        674.0,
+        654.0,
         fill="#283341",
         outline="")
     canvas.create_text(
         678.0,
-        664.0,
+        644.0,
         anchor="nw",
         text="Shubhank",
         fill="#273340",
@@ -311,9 +320,9 @@ def splash():
 
     canvas.create_text(
         678.0,
-        548.0,
+        660.0,
         anchor="nw",
-        text="Faculty, Civil Engg. Dept., IIT Roorkee",
+        text="UG Students, Civil Engg. Dept., IIT Roorkee",
         fill="#273340",
         font=("OpenSansRoman Regular", 10 * -1)
     )
