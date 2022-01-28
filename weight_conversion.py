@@ -10,17 +10,6 @@ from algo import *
 
 
 
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
-
-# def reset(entries,sieve_entries):
-#     for i in range(len(sieve_entries)):
-#         sieve_entries[i].delete(0,END)
-#     for i in range(len(entries)):
-#         entries[i].delete(0,END)
-
-
-
 def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
     root.withdraw()
     window = Toplevel(root)
