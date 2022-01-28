@@ -185,13 +185,13 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
 
     if(wp.get()=="Weight"):
         button_image_4 = PhotoImage(
-            file="assets/reset_button.png")
+            file="assets/%_passing button.png")
         button_4 = Button(
             window,
             image=button_image_4,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: wt_percent2(root,numSieves,numStocks,sievegrad,mainroot,wp),
+            command=lambda: wt_percent2(numStocks,numSieves,sievegrad,entries,sieve_entries,window,mainroot,wp,pan),
             relief="flat"
         )
         button_4.place(

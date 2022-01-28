@@ -10,7 +10,7 @@ from algo import *
 
 
 
-def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
+def wt_percent(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroot,wp,pan):
     root.withdraw()
     window = Toplevel(root)
     screen_width=window.winfo_screenwidth()
@@ -136,42 +136,6 @@ def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
         width=108.0,
         height=31.0
     )
-################
-    # if(wp.get()=="Weight"):
-    #     button_image_4 = PhotoImage(
-    #         file="assets/reset_button.png")
-    #     button_4 = Button(
-    #         window,
-    #         image=button_image_4,
-    #         borderwidth=0,
-    #         highlightthickness=0,
-    #         command=lambda: reset(entries, sieve_entries),
-    #         relief="flat"
-    #     )
-    #     button_4.place(
-    #         x=1109.0,
-    #         y=262.0,
-    #         width=108.0,
-    #         height=31.0
-    #     )
-
-
-    # button_image_2 = PhotoImage(
-    #     file="assets/reset_button.png")
-    # button_2 = Button(
-    #     window,
-    #     image=button_image_2,
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     command=lambda: reset(entries, sieve_entries),
-    #     relief="flat"
-    # )
-    # button_2.place(
-    #     x=1109.0,
-    #     y=223.0,
-    #     width=108.0,
-    #     height=31.0
-    # )
 
     canvas.create_rectangle(
         20.0,
@@ -308,9 +272,10 @@ def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
     elif (sievegrad.get() == "WMM"):
         sievenum = 8
 
-    sieve_entries = []
+    # sieve_entries = []
     sieve_size=[]                               ##built text boxes for sieves
     y1=233
+    temp=0
     for i in range(sievenum):
         entry_1 = Entry(
             window,
@@ -324,6 +289,9 @@ def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
             width=101.0,
             height=22.0
         )
+        entry_1.insert(0, sieve_entries[temp].get())
+        entry_1.configure(state="disabled")
+        temp+=1
         entry_2 = Entry(
             window,
             bd=0,
@@ -337,6 +305,9 @@ def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
             height=22.0
         )
 
+        entry_2.insert(0, sieve_entries[temp].get())
+        entry_2.configure(state="disabled")
+        temp += 1
         entry_3 = Entry(
             window,
             bd=0,
@@ -349,8 +320,6 @@ def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
             width=101.0,
             height=22.0
         )
-        sieve_entries.append(entry_1)
-        sieve_entries.append(entry_2)
         sieve_size.append(entry_3)
         y1+=30
 
@@ -400,7 +369,7 @@ def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
         ssize=[53.00,45.00,22.40,11.20,4.75,2.36,0.6,0.075]
 
 
-    print(len(sieve_size))
+
 
 
     if (sievegrad.get() == "BC - 19mm"):
@@ -524,15 +493,6 @@ def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
         )
         y1+=30
 
-    if (wp.get() == "Weight"):
-        canvas.create_text(
-            79.0,
-            y1,
-            anchor="nw",
-            text="Pan",
-            fill="#273340",
-            font=("OpenSansRoman Regular", 12 * -1)
-        )
 
     #####Sieve labels#####
 
@@ -561,10 +521,12 @@ def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
 
     #####Creating Entries#####
 
-
-    entries=[]
-    pan=[]
+    temp=0
     x1 = 478
+    # print(entries)
+    # print(pan)
+    # print(numSieves.get())
+    data=convert(entries,numSieves.get(),pan)
     for i in range(numStocks.get()):
         y1 = 233
         for j in range(sievenum):
@@ -583,24 +545,10 @@ def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
                 height=22.0
             )
             y1 += 30
-            entries.append(entry_1)
+            entry_1.insert(0, data[i][j])
+            entry_1.configure(state="disabled")
+            temp += 1
 
-        if (wp.get() == "Weight"):
-            entry_1 = Entry(
-                window,
-                bd=0,
-                bg="#FFFFFF",
-                highlightthickness=0
-            )
-            # entry_1.insert(0,0)
-
-            entry_1.place(
-                x=x1,
-                y=y1,
-                width=101.0,
-                height=22.0
-            )
-            pan.append(entry_1)
         x1 += 109
 
 

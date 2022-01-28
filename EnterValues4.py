@@ -182,13 +182,13 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
 
     if(wp.get()=="Weight"):
         button_image_4 = PhotoImage(
-            file="assets/reset_button.png")
+            file="assets/%_passing button.png")
         button_4 = Button(
             window,
             image=button_image_4,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp),
+            command=lambda: wt_percent(numStocks,numSieves,sievegrad,entries,sieve_entries,window,mainroot,wp,pan),
             relief="flat"
         )
         button_4.place(
@@ -425,7 +425,6 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
         ssize=[53.00,45.00,22.40,11.20,4.75,2.36,0.6,0.075]
 
 
-    print(len(sieve_size))
 
 
     if (sievegrad.get() == "BC - 19mm"):
