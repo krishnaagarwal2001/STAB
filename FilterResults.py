@@ -102,14 +102,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         font=("Inter Medium", 12 * -1)
     )
 
-    canvas.create_text(
-        989.0,
-        263.0,
-        anchor="nw",
-        text="Legends/Instructions:",
-        fill="#273340",
-        font=("OpenSansRoman Regular", 16 * -1)
-    )
+
 
     canvas.create_text(
         82.0,
@@ -278,23 +271,7 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
 
 
 
-    canvas.create_text(
-        1001.0,
-        296.0,
-        anchor="nw",
-        text="Please use percentage values",
-        fill="#273340",
-        font=("OpenSansRoman Regular", 14 * -1)
-    )
 
-    canvas.create_text(
-        1001.0,
-        323.0,
-        anchor="nw",
-        text="Graph is to scale of such.",
-        fill="#273340",
-        font=("OpenSansRoman Regular", 14 * -1)
-    )
 
     canvas.create_rectangle(
         82.0,
@@ -391,21 +368,21 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         fill="#000000",
         outline="")
 
-    canvas.create_rectangle(
-        991.0,
-        304.0,
-        995.0,
-        308.0,
-        fill="#000000",
-        outline="")
-
-    canvas.create_rectangle(
-        991.0,
-        331.0,
-        995.0,
-        335.0,
-        fill="#000000",
-        outline="")
+    # canvas.create_rectangle(
+    #     991.0,
+    #     304.0,
+    #     995.0,
+    #     308.0,
+    #     fill="#000000",
+    #     outline="")
+    #
+    # canvas.create_rectangle(
+    #     991.0,
+    #     331.0,
+    #     995.0,
+    #     335.0,
+    #     fill="#000000",
+    #     outline="")
 
 
 

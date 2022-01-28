@@ -107,7 +107,7 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         989.0,
         263.0,
         anchor="nw",
-        text="Legends/Instructions:",
+        text="Note:",
         fill="#273340",
         font=("OpenSansRoman Regular", 16 * -1)
     )
@@ -263,23 +263,47 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         font=("Inter Regular", 16 * -1)
     )
 
-    canvas.create_text(
-        1001.0,
-        296.0,
-        anchor="nw",
-        text="Please use percentage values",
-        fill="#273340",
-        font=("OpenSansRoman Regular", 14 * -1)
+    image_image_10 = PhotoImage(
+        file="assets/note1.png")
+    image_10 = canvas.create_image(
+        1100.0,
+        361.0,
+        image=image_image_10
     )
 
-    canvas.create_text(
-        1001.0,
-        323.0,
-        anchor="nw",
-        text="Graph is to scale of such.",
-        fill="#273340",
-        font=("OpenSansRoman Regular", 14 * -1)
+    image_image_11 = PhotoImage(
+        file="assets/note2.png")
+    image_11 = canvas.create_image(
+        1075.0,
+        461.0,
+        image=image_image_11
     )
+
+    image_image_12 = PhotoImage(
+        file="assets/note3.png")
+    image_12 = canvas.create_image(
+        1105.0,
+        561.0,
+        image=image_image_12
+    )
+
+    # canvas.create_text(
+    #     1001.0,
+    #     296.0,
+    #     anchor="nw",
+    #     text="Please use percentage values",
+    #     fill="#273340",
+    #     font=("OpenSansRoman Regular", 14 * -1)
+    # )
+    #
+    # canvas.create_text(
+    #     1001.0,
+    #     323.0,
+    #     anchor="nw",
+    #     text="Graph is to scale of such.",
+    #     fill="#273340",
+    #     font=("OpenSansRoman Regular", 14 * -1)
+    # )
 
     canvas.create_rectangle(
         82.0,
@@ -375,21 +399,21 @@ def result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entries,sie
         fill="#000000",
         outline="")
 
-    canvas.create_rectangle(
-        991.0,
-        304.0,
-        995.0,
-        308.0,
-        fill="#000000",
-        outline="")
-
-    canvas.create_rectangle(
-        991.0,
-        331.0,
-        995.0,
-        335.0,
-        fill="#000000",
-        outline="")
+    # canvas.create_rectangle(
+    #     991.0,
+    #     304.0,
+    #     995.0,
+    #     308.0,
+    #     fill="#000000",
+    #     outline="")
+    #
+    # canvas.create_rectangle(
+    #     991.0,
+    #     331.0,
+    #     995.0,
+    #     335.0,
+    #     fill="#000000",
+    #     outline="")
 
 
 
