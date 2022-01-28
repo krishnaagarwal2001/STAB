@@ -185,7 +185,7 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
 
     if(wp.get()=="Weight"):
         button_image_4 = PhotoImage(
-            file="assets/%_passing button.png")
+            file="assets/%_passing_button.png")
         button_4 = Button(
             window,
             image=button_image_4,
