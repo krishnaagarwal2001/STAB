@@ -69,14 +69,7 @@ def splash():
         fill="#3888FF",
         outline="")
 
-    canvas.create_text(
-        668.0,
-        121.0,
-        anchor="nw",
-        text="STAB Calculator for Stocks",
-        fill="#3888FF",
-        font=("Inter Medium", 28 * -1)
-    )
+
 
     canvas.create_text(
         70.0,
@@ -221,89 +214,10 @@ def splash():
         height=31.0
     )
 
-    canvas.create_text(
-        718.2724609375,
-        326.044921875,
-        anchor="nw",
-        text="1",
-        fill="#273340",
-        font=("Inter Regular", 11 * -1)
-    )
 
-    button_image_3 = PhotoImage(
-        file="assets/next_image_button.png")
-    button_3 = Button(
-        image=button_image_3,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_3 clicked"),
-        relief="flat"
-    )
-    button_3.place(
-        x=733.95458984375,
-        y=324.0,
-        width=17.04541015625,
-        height=17.04541015625
-    )
 
-    button_image_4 = PhotoImage(
-        file="assets/previous_image_button.png")
-    button_4 = Button(
-        image=button_image_4,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_4 clicked"),
-        relief="flat"
-    )
-    button_4.place(
-        x=691.0,
-        y=324.0,
-        width=17.04541015625,
-        height=17.04541015625
-    )
 
-    canvas.create_text(
-        674.0,
-        351.044921875,
-        anchor="nw",
-        text="Browse all solutions",
-        fill="#273340",
-        font=("OpenSansRoman Regular", 10 * -1)
-    )
 
-    canvas.create_text(
-        798.0,
-        353.0,
-        anchor="nw",
-        text="Get lower & upper bounds",
-        fill="#273340",
-        font=("OpenSansRoman Regular", 10 * -1)
-    )
-
-    canvas.create_rectangle(
-        826.0,
-        327.0,
-        897.0,
-        327.0,
-        fill="#000000",
-        outline="")
-
-    canvas.create_rectangle(
-        826.0,
-        342.0,
-        897.0,
-        342.0,
-        fill="#000000",
-        outline="")
-
-    canvas.create_text(
-        958.0,
-        351.0,
-        anchor="nw",
-        text="Utilise all info within graphs",
-        fill="#273340",
-        font=("OpenSansRoman Regular", 10 * -1)
-    )
 
     canvas.create_text(
         668.0,
@@ -399,20 +313,12 @@ def splash():
         678.0,
         548.0,
         anchor="nw",
-        text="Prof., Transportation Engg. Dept., IIT Roorkee",
+        text="Faculty, Civil Engg. Dept., IIT Roorkee",
         fill="#273340",
         font=("OpenSansRoman Regular", 10 * -1)
     )
 
 
-
-    image_image_4 = PhotoImage(
-        file="assets/toolbar.png")
-    image_4 = canvas.create_image(
-        1022.0,
-        335.0,
-        image=image_image_4
-    )
 
     canvas.create_text(
         1059.0,
@@ -430,6 +336,47 @@ def splash():
         686.0,
         image=image_image_5
     )
+
+    image_image_6 = PhotoImage(
+        file="assets/heading.png")
+    image_6 = canvas.create_image(
+        900.0,
+        140.0,
+        image=image_image_6
+    )
+
+    image_image_7 = PhotoImage(
+        file="assets/frame1.png")
+    image_7 = canvas.create_image(
+        717.0,
+        346.0,
+        image=image_image_7
+    )
+
+    image_image_8 = PhotoImage(
+        file="assets/frame2.png")
+    image_8 = canvas.create_image(
+        842.0,
+        346.0,
+        image=image_image_8
+    )
+
+    image_image_9 = PhotoImage(
+        file="assets/frame3.png")
+    image_9 = canvas.create_image(
+        967.0,
+        346.0,
+        image=image_image_9
+    )
+
+    image_image_10 = PhotoImage(
+        file="assets/filter_mini.png")
+    image_10 = canvas.create_image(
+        841.0,
+        333.0,
+        image=image_image_10
+    )
+
 
     canvas.create_rectangle(
         1059.0,
