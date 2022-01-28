@@ -78,6 +78,14 @@ def main_window(root,mainroot):
         font=("OpenSansRoman Regular", 12 * -1)
     )
 
+    canvas.create_rectangle(
+        136.0,
+        203.0,
+        776.0,
+        398.0,
+        fill="#F1F5FF",
+        outline="")
+
     image_image_1 = PhotoImage(
         file="assets/next_write.png")
     image_1 = canvas.create_image(
@@ -103,13 +111,6 @@ def main_window(root,mainroot):
         image=image_image_3
     )
 
-    image_image_4 = PhotoImage(
-        file="assets/info_icon.png")
-    image_4 = canvas.create_image(
-        166.0,
-        254.0,
-        image=image_image_4
-    )
 
     canvas.create_rectangle(
         136.0,
@@ -239,10 +240,10 @@ def main_window(root,mainroot):
     )
 
     canvas.create_text(
-        181.0,
+        160.0,
         251.0,
         anchor="nw",
-        text="Select the type of sieves used",
+        text="(Select the type of sieves used)",
         fill="#283341",
         font=("OpenSansRoman Regular", 12 * -1)
     )
