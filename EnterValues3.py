@@ -526,44 +526,7 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
 
 
 
-    #####Creating Entries#####
-    # reset_button = Button(
-    #     window,
-    #     text="Reset",
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     fg="#3888FF",
-    #     bg="#FFFFFF",
-    #     command=lambda: reset(entries, sieve_entries),
-    #     relief="flat"
-    # )
-    # reset_button.place(
-    #     x=1094.0,
-    #     y=223.0,
-    #     width=108.0,
-    #     height=31.0
-    # )
 
-    #######BACK BUTTON#####
-
-    # back_button_1 = Button(
-    #     window,
-    #     text="<--",
-    #     borderwidth=0,
-    #     highlightthickness=0,
-    #     bg="#3888FF",
-    #     fg="#FFFFFF",
-    #     command=lambda: back_utl(root, window),
-    #     relief="flat"
-    # )
-    # back_button_1.place(
-    #     x=20.0,
-    #     y=124.0,
-    #     width=28.0,
-    #     height=28.0
-    # )
-
-    #######BACK BUTTON#####
 
     def on_closing():
         if messagebox.askokcancel("Quit", "Do you want to quit?"):

@@ -11,6 +11,18 @@ from algo import *
 
 
 def wt_percent2(numStocks,numSieves,sievegrad,entries,sieve_entries,root,mainroot,wp,pan):
+    flag = True
+    for i in range(len(entries)):
+        if (len(entries[i].get())) == 0:
+            flag = False
+
+    for i in range(len(sieve_entries)):
+        if (len(sieve_entries[i].get())) == 0:
+            flag = False
+
+    if (flag == False):
+        messagebox.showerror("Error", "Please enter all the fields", icon='error')
+        return
     root.withdraw()
     window = Toplevel(root)
     screen_width=window.winfo_screenwidth()
