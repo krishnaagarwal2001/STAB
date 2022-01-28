@@ -4,26 +4,24 @@ from tkinter import *
 from tkinter import ttk, messagebox
 from Results import *
 from pathlib import Path
+
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from algo import *
-from weight_conversion import wt_percent
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path("EnterValues4/build/assets")
 
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def reset(entries,sieve_entries):
-    for i in range(len(sieve_entries)):
-        sieve_entries[i].delete(0,END)
-    for i in range(len(entries)):
-        entries[i].delete(0,END)
+# def reset(entries,sieve_entries):
+#     for i in range(len(sieve_entries)):
+#         sieve_entries[i].delete(0,END)
+#     for i in range(len(entries)):
+#         entries[i].delete(0,END)
 
 
 
-def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
+def wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp):
     root.withdraw()
     window = Toplevel(root)
     screen_width=window.winfo_screenwidth()
@@ -68,7 +66,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
         70.0,
         23.0,
         anchor="nw",
-        text="STAB",
+        text="STAB Calculator",
         fill="#FFFFFF",
         font=("Inter Bold", 28 * -1)
     )
@@ -77,7 +75,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
         1176.0,
         28.0,
         anchor="nw",
-        text="Version 2.0",
+        text="Version 2.3",
         fill="#FFFFFF",
         font=("Inter Medium", 12 * -1)
     )
@@ -95,18 +93,11 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
         63.0,
         99.0,
         anchor="nw",
-        text="Define stockpiles & sieves",
+        text="Define StockPiles & Sieves",
         fill="#273340",
         font=("OpenSansRoman Regular", 12 * -1)
     )
-    canvas.create_text(
-        227.0,
-        99.0,
-        anchor="nw",
-        text="Enter values",
-        fill="#273340",
-        font=("OpenSansRoman Regular", 12 * -1)
-    )
+
     image_image_1 = PhotoImage(
         file="assets/next_write.png")
     image_1 = canvas.create_image(
@@ -129,12 +120,6 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
         1118.0,
         55.0,
         image=image_image_3
-    )
-
-    image_4 = canvas.create_image(
-        301.0,
-        107.0,
-        image=image_image_1
     )
 
     canvas.create_rectangle(
@@ -162,41 +147,42 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
         width=108.0,
         height=31.0
     )
+################
+    # if(wp.get()=="Weight"):
+    #     button_image_4 = PhotoImage(
+    #         file="assets/reset_button.png")
+    #     button_4 = Button(
+    #         window,
+    #         image=button_image_4,
+    #         borderwidth=0,
+    #         highlightthickness=0,
+    #         command=lambda: reset(entries, sieve_entries),
+    #         relief="flat"
+    #     )
+    #     button_4.place(
+    #         x=1109.0,
+    #         y=262.0,
+    #         width=108.0,
+    #         height=31.0
+    #     )
 
-    button_image_2 = PhotoImage(
-        file="assets/reset_button.png")
-    button_2 = Button(
-        window,
-        image=button_image_2,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: reset(entries, sieve_entries),
-        relief="flat"
-    )
-    button_2.place(
-        x=1109.0,
-        y=223.0,
-        width=108.0,
-        height=31.0
-    )
 
-    if(wp.get()=="Weight"):
-        button_image_4 = PhotoImage(
-            file="assets/reset_button.png")
-        button_4 = Button(
-            window,
-            image=button_image_4,
-            borderwidth=0,
-            highlightthickness=0,
-            command=lambda: wt_percent(root,numSieves,numStocks,sievegrad,mainroot,wp),
-            relief="flat"
-        )
-        button_4.place(
-            x=1109.0,
-            y=262.0,
-            width=108.0,
-            height=31.0
-        )
+    # button_image_2 = PhotoImage(
+    #     file="assets/reset_button.png")
+    # button_2 = Button(
+    #     window,
+    #     image=button_image_2,
+    #     borderwidth=0,
+    #     highlightthickness=0,
+    #     command=lambda: reset(entries, sieve_entries),
+    #     relief="flat"
+    # )
+    # button_2.place(
+    #     x=1109.0,
+    #     y=223.0,
+    #     width=108.0,
+    #     height=31.0
+    # )
 
     canvas.create_rectangle(
         20.0,
@@ -577,7 +563,7 @@ def Enter_Values4(root,numSieves,numStocks,sievegrad,mainroot,wp):
             x1+8,
             195.0,
             anchor="nw",
-            text="Stockpile "+str(i+1),
+            text="StockPile "+str(i+1),
             fill="#273340",
             font=("OpenSansRoman SemiBold", 12 * -1)
         )

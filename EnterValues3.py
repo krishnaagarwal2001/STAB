@@ -7,6 +7,8 @@ from pathlib import Path
 
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from algo import *
+from weight_conversion import wt_percent
+from weight_conversionother import wt_percent2
 
 
 def reset(entries,sieve_entries):
@@ -180,6 +182,24 @@ def Enter_Values3(root,numSieves,numStocks,sievegrad,mainroot,wp):
         width=108.0,
         height=31.0
     )
+
+    if(wp.get()=="Weight"):
+        button_image_4 = PhotoImage(
+            file="assets/reset_button.png")
+        button_4 = Button(
+            window,
+            image=button_image_4,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: wt_percent2(root,numSieves,numStocks,sievegrad,mainroot,wp),
+            relief="flat"
+        )
+        button_4.place(
+            x=1109.0,
+            y=262.0,
+            width=108.0,
+            height=31.0
+        )
 
     canvas.create_rectangle(
         20.0,
