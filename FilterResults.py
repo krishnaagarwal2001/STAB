@@ -215,6 +215,29 @@ def filter_result_fn(root,possibleSolutions,corData,numSieves,numStockPiles,entr
         image=image_image_1
     )
 
+    image_image_10 = PhotoImage(
+        file="assets/note1.png")
+    image_10 = canvas.create_image(
+        1080.0,
+        361.0,
+        image=image_image_10
+    )
+
+    image_image_11 = PhotoImage(
+        file="assets/note2.png")
+    image_11 = canvas.create_image(
+        1055.0,
+        461.0,
+        image=image_image_11
+    )
+
+    image_image_12 = PhotoImage(
+        file="assets/note3.png")
+    image_12 = canvas.create_image(
+        1085.0,
+        561.0,
+        image=image_image_12
+    )
 
 
     button_image_1 = PhotoImage(
