@@ -1,7 +1,12 @@
 from main import *
+import webbrowser
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Button, PhotoImage,messagebox
+
+def openpdf():
+    path="Manual.pdf"
+    webbrowser.open_new(path)
 
 
 def splash():
@@ -204,7 +209,7 @@ def splash():
         image=button_image_2,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_2 clicked"),
+        command=lambda: openpdf(),
         relief="flat"
     )
     button_2.place(
