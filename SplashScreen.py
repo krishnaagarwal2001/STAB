@@ -5,7 +5,7 @@ import webbrowser
 from tkinter import Tk, Canvas, Button, PhotoImage,messagebox
 
 def openpdf():
-    path="Manual.pdf"
+    path="Manual_Stab.pdf"
     webbrowser.open_new(path)
 
 
